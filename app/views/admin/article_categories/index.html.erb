@@ -1,0 +1,30 @@
+<h2>Conteúdo - Categorias</h2>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Nome</th>
+    <th>Está Ativa?</th>
+    <th></th>
+  </tr>
+  <% collection.each do |r| %>
+    <tr>
+      <td><%= r.name %></td>
+      <td>
+        <% if r.is_active %>
+          <span class="badge badge-success">
+            <i class="icon-ok"></i>
+          </span>
+        <% else %>
+          <span class="badge badge-important">
+            <i class="icon-remove"></i>
+          </span>
+        <% end %>
+      </td>
+      <td>
+        <%= render 'admin/shared/actions', r: r %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render 'admin/shared/create' %>

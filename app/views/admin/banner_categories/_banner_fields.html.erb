@@ -1,0 +1,11 @@
+<div class="nested-fields">
+  <%= f.input :image, as: :image_preview, :label => 'Imagem', :input_html => { :class => "span6", :preview_version => :preview } %>
+  <%= f.input :link, :label => 'Link', :input_html => { :class => "span6" } %>
+  <%= f.input :formated_expires_at, :label => 'Expira em', hint: 'Clique no ícone para escolher uma data' , :wrapper => :append, wrapper_html: { class: 'date' } do %>
+    <%= f.input_field :formated_expires_at, data: { format: "dd/MM/yyyy hh:mm:ss" }, :class => "span6" %>
+    <%= content_tag :span, :class => "add-on" do %>
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+    <% end %>
+  <% end %>
+  <%= link_to_remove_association "remover banner", f %>
+</div>

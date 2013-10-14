@@ -1,0 +1,81 @@
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
+    %title 
+      MarpNet - 
+      = content_for?(:title) ? yield(:title) : "Internet em Alta Velocidade"
+    = stylesheet_link_tag 'frontend/application', :media => "all"
+
+    /[if lt IE 9]
+      = javascript_include_tag 'html5shiv-printshiv'
+
+    = csrf_meta_tags
+    = yield(:head)
+  %body
+    %header
+      .top
+        .container
+          %h1.left#logo
+            = link_to 'MarpNet', root_path, class: 'icons-logo left'
+
+          .right
+            %nav.clear.right#menu_top
+              %ul
+                %li
+                  = link_to 'Assine Já', root_path+'ATIVACAO_TECNICA_2.docx', class: 'link_top'
+                  #div_ass
+                    = link_to 'Imprima e Preencha', root_path+'ATIVACAO_TECNICA_2.docx', id: 'ass' 
+                    %span
+                %li= link_to 'Área do Cliente', "http://marpnet-central.fasolucoes.com.br/central/main", class: 'link_top'
+
+            %nav.right.clear#menu
+              %ul
+                %li= nav_link_to 'Quem Somos', page_path('quem-somos')
+                %li= nav_link_to 'Serviços', page_services_path('nossos-planos')
+                %li= nav_link_to 'Notícias', articles_path('noticias')
+                %li= nav_link_to 'Como Funciona', page_path('como-funciona')
+                %li= nav_link_to 'Contato', contact_path
+
+      #banner_container
+        .container
+          #banner
+            .cycle-slideshow{ :data => { :'cycle-loader' => 'wait', :'cycle-timeout' => 6000, :'cycle-pager' => '#custom-pager', :'cycle-pager-template' => '<a href=#>{{slideNum}}</a>' } }
+              - @banner_category.banners.each do |banners|
+                = image_tag banners.image_url.to_s unless banners.nil?
+            #custom-pager
+    %section.container#main{:role => 'main'}
+      = yield
+    %footer
+      .container.middle
+        .left
+          %nav.social_hub
+            %ul
+              %li= link_to 'Twitter', 'https://twitter.com/Marpsolution', target: '_blank', class: 'icons-twitter'
+              %li=# link_to 'Youtube', root_path, class: 'icons-youtube'
+              %li= link_to 'Facebook', 'https://www.facebook.com/marp.net?fref=ts', target: '_blank',class: 'icons-facebook'
+          %address.clear.left
+            %p Rua A28, Conj. Marcos Freire II - Nossa Senhora do Socorro
+            %p Tel: (79) 3114-4400 | E-mail: contato@marpnet.com.br
+          
+        .right
+          #partners
+            %h3.title Parceiros:
+            .parners_container
+              .cycle-slideshow{:data => {:'cycle-fx'=> 'scrollHorz', :'cycle-timeout' => '4000', :'cycle-next' => '#next', :'cycle-prev' => '#previous', :'cycle-pager-template' => '<a href=#> {{slideNum}} </a>'}}
+                - @partners.each do |partners|
+                  = image_tag partners.image_url(:partner).to_s unless partners.nil?
+              .center
+                = link_to '', '#', class: 'icons-arrow_left', id: 'previous'
+                = link_to '', '#', class: 'icons-arrow_right', id: 'next'
+             
+      .container.bottom
+        #copyright.left
+          Copyright © 
+          = DateTime.now.year 
+          | Marp Net. Todos os direitos reservados
+
+        #sponsor.right
+          = link_to 'Agência Acerte', 'http://agenciaacerte.com', class: 'icons-acerte', target: '_blank'
+
+    = javascript_include_tag 'frontend/application'

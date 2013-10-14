@@ -1,0 +1,26 @@
+<h2><%= parent.name %></h2>
+
+<%= simple_form_for [:admin, parent, resource], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :title, :label => 'Título', :input_html => { :class => "span6" } %>
+  <%= f.input :abstract, :label => 'Resumo', :input_html => { :class => "span6" } %>
+
+  <%= f.input :formated_published_at, :label => 'Data de Publicação', hint: 'Clique no ícone para escolher uma data' , :wrapper => :append, wrapper_html: { class: 'date' } do %>
+    <%= f.input_field :formated_published_at, data: { format: "dd/MM/yyyy hh:mm:ss" }, :class => "span6" %>
+    <%= content_tag :span, :class => "add-on" do %>
+      <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+    <% end %>
+  <% end %>
+
+  <%= f.input :content, :label => 'Conteúdo', :as => :ckeditor, :input_html => { :class => "span6", :ckeditor => { :toolbar => 'Pure' } } %>
+
+  <div id="images">
+    <%= f.simple_fields_for :images do |image| %>
+      <%= render 'image_fields', :f => image %>
+    <% end %>
+    <%= link_to_add_association 'adicionar imagem', f, :images %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Salvar', :class => 'btn-primary' %>
+  </div>
+<% end %>

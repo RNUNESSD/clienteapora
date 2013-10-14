@@ -1,0 +1,10 @@
+<h2>Newsletter</h2>
+
+<%= simple_form_for [:admin, resource], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name, :label => 'Nome', :input_html => { :class => "span6" } %>
+  <%= f.input :email, :label => 'E-mail', :input_html => { :class => "span6" } %>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Salvar', :class => 'btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Target" %></title>
+    <%= csrf_meta_tags %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <%= stylesheet_link_tag "admin/application", media: "all" %>
+
+    <%#= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+  </head>
+  <body>
+
+    <div class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Target</a>
+          <div class="container nav-collapse">
+            <ul class="nav">
+              <%= content_tag :li do %>
+                <%= link_to "Páginas", admin_pages_path %>
+              <% end if can? :read, Page %>
+
+              <%= content_tag :li do %>
+                <%= link_to "Banners", admin_banner_categories_path %>
+              <% end if can? :read, BannerCategory %>
+
+              <li class="dropdown">
+                <% if (can?(:read, Article) || can?(:read, ArticleCategory)) %>
+                <%= link_to 'Conteúdo', '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } %>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  <% if can? :read, ArticleCategory %>
+                  <li><%= link_to 'Categorias', admin_article_categories_path %></li>
+                  <% end %>
+                  <% if can? :read, Article %>
+                    <% @article_categories_menu.each do |category| %>
+                    <li><%= link_to category.name, admin_article_category_articles_path(category) %></li>
+                    <% end %>
+                  <% end %>
+                </ul>
+                <% end %>
+              </li>
+
+              <%= content_tag :li do %>
+                <%= link_to "Newsletters", admin_newsletters_path %>
+              <% end if can? :read, Newsletter %>
+
+              <%= content_tag :li do %>
+                <%= link_to "Grupos", admin_roles_path %>
+              <% end if can? :read, Role %>
+
+              <%= content_tag :li do %>
+                <%= link_to "Permissões", admin_permissions_path %>
+              <% end if can? :read, Permission %>
+
+              <%= content_tag :li do %>
+                <%= link_to "Usuários", admin_users_path %>
+              <% end if can? :read, User %>
+
+              <li>
+                <ul class="dropdown-menu">
+                </ul>
+              </li>
+            </ul>
+            <% if user_signed_in? %>
+              <%= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'pull-right btn btn-danger'  %></li>
+            <% end %>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          <div class="span12">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+        </div><!--/row-->
+      <footer>
+      </footer>
+    </div> <!-- /container -->
+
+    <%= javascript_include_tag "admin/application" %>
+
+  </body>
+</html>

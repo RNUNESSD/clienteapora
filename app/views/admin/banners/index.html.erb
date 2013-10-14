@@ -1,0 +1,18 @@
+<h2>Banners</h2>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Título</th>
+    <th></th>
+  </tr>
+  <% collection.each do |r| %>
+    <tr>
+      <td><%= r.title %></td>
+      <td>
+        <%= render 'admin/shared/actions', r: r %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render 'admin/shared/create' %>

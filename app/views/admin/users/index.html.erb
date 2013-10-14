@@ -1,0 +1,32 @@
+<h2>Usuários</h2>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>E-mail</th>
+    <th>Ativo</th>
+    <th>Último Login</th>
+    <th>Ações</th>
+  </tr>
+  <% collection.each do |r| %>
+    <tr>
+      <td><%= r.email %></td>
+      <td>
+        <% if r.is_active %>
+          <span class="badge badge-success">
+            <i class="icon-ok"></i>
+          </span>
+        <% else %>
+          <span class="badge badge-important">
+            <i class="icon-remove"></i>
+          </span>
+        <% end %>
+      </td>
+      <td><%= r.last_sign_in_at %></td>
+      <td>
+        <%= render 'admin/shared/actions', r: r %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render 'admin/shared/create' %>

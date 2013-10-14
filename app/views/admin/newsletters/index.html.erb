@@ -1,0 +1,20 @@
+<h2>Newsletter</h2>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th>Nome</th>
+    <th>E-mail</th>
+    <th>Ações</th>
+  </tr>
+  <% collection.each do |r| %>
+    <tr>
+      <td><%= r.name %></td>
+      <td><%= r.email %></td>
+      <td>
+        <%= render 'admin/shared/actions', r: r %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render 'admin/shared/create' %>
