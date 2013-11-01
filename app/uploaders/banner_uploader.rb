@@ -38,24 +38,16 @@ class BannerUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
 
-  process :resize_to_fill => [920, 315]
-
-  version :thumb do
-    process :resize_to_fill => [90, 85]
-  end
+  process :resize_to_model_size
 
   version :preview do
     process :resize_to_fill => [200, 140]
   end
 
-  def scale(width, height)
-    raise model.image_width
+  def resize_to_model_size
+    resize_to_fill model.banner_category.image_width, model.banner_category.image_height
   end
 
-  # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :scale => [50, 50]
-  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

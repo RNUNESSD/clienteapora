@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131017115529) do
+ActiveRecord::Schema.define(version: 20131101140153) do
 
   create_table "article_categories", force: true do |t|
     t.string  "name"
@@ -38,7 +38,9 @@ ActiveRecord::Schema.define(version: 20131017115529) do
 
   create_table "banner_categories", force: true do |t|
     t.string  "name"
-    t.boolean "is_active", default: true
+    t.boolean "is_active",    default: true
+    t.integer "image_width"
+    t.integer "image_height"
   end
 
   add_index "banner_categories", ["is_active"], name: "index_banner_categories_on_is_active", using: :btree

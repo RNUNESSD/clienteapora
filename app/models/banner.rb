@@ -21,5 +21,5 @@ class Banner < ActiveRecord::Base
     errors.add(:formated_expires_at, "Data Inválida") if @formated_expires_at_invalid
   end
 
-  mount_uploader :image, DefaultUploader
+  mount_uploader :image, BannerUploader
 end

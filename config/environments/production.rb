@@ -77,4 +77,14 @@ Target::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  ActionMailer::Base.smtp_settings = {
+    :user_name => "agenciaacerte",
+    :password => "_gBLI4*iS&",
+    :domain => "agenciaacerte.com",
+    :address => "smtp.sendgrid.net",
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 end
