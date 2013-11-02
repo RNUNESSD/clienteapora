@@ -3,7 +3,7 @@ class Contact
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  attr_accessor :name, :address, :email, :phone, :subject, :comment
+  attr_accessor :name, :company, :email, :phone, :comment
 
   validates :name, presence: true
   validates :email, presence: true, format: { with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/ }

@@ -3,7 +3,8 @@
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
     %title
-      = content_for?(:title) ? yield(:title) : ""
+      TT Service
+      = content_for?(:title) ? yield(:title) : "Construções, Locações e Serviços Ltda"
     = stylesheet_link_tag 'frontend/application', :media => "all"
 
     /[if lt IE 9]
@@ -13,9 +14,35 @@
     = yield(:head)
   %body
     %header
+      .container#top
+        %h1#logo.left
+          = link_to 'TT Service', root_path, class: 'icons-logo left ml'
+        #menu_container.right
+          %ul#social.right
+            %li= link_to 'Facebook', '', class: 'icons-facebook'
+            %li= link_to 'Instagram', '', class: 'icons-instagram'
+          %ul#menu.right
+            %li= link_to 'Quem Somos', page_path('quem-somos')
+            %li= link_to 'Serviços', root_path
+            %li= link_to 'Portfólio', root_path
+            %li= link_to 'Contato', contact_path
+
+      .container_full
+        #banner_container
+          %ul#banner
+            %li= image_tag 'banner.jpg'
 
     %section.container#main{:role => 'main'}
-      = yield
+      %div.mr.ml
+        = yield
+
     %footer
+      .container
+        .left.ml
+          %div &copy; #{Date.today.year} | TT Service Locações e Serviços Ltda.  -  Todos os direitos reservados
+          %address (79) 9601-6565 | Av. Gonçalo Rollemberg Leite, 2319. B. Pereira Lobo, 49045-280. Aju -SE 
+
+        .right
+          = link_to 'Agência Acerte', 'http://agenciaacerte.com', class: 'icons-acerte right mr'
 
     = javascript_include_tag 'frontend/application'

@@ -48,28 +48,8 @@ class DefaultUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [200, 140]
   end
 
-  version :small do
-    process :resize_to_fit => [170, 194]
-  end
-
-  version :medium do
-    process :resize_to_fill => [160, 175]
-  end
-
   version :page do
-    process :resize_to_fit => [319, 364]
-  end
-
-  version :partner do
-    process :resize_to_fill => [209, 60]
-  end
-
-  version :service do
-    process :resize_to_fill => [936, 295]
-  end
-
-  version :uorplan do
-    process :resize_to_fill => [457, 138]
+    process :resize_to_fill => [206, 157]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

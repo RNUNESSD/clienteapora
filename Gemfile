@@ -83,6 +83,10 @@ gem 'protected_attributes'
 
 gem 'haml-rails'
 
+gem 'fancybox2-rails', '~> 0.2.4'
+
+gem 'bxslider-rails'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

@@ -12,9 +12,9 @@ models = {
 
 actions = { 'create' => 'adicionar', 'read' => 'visualizar', 'update' => 'editar', 'destroy' => 'remover' }
 
-pages = []
+pages = ['Quem Somos']
 
-article_categories = []
+article_categories = ['Serviços']
 
 banner_categories = []
 

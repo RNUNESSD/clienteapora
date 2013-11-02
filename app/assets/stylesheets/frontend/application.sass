@@ -1,6 +1,210 @@
 @import "compass"
 @import "compass/reset"
+@import "fancybox"
+//@import "bxslider"
+@import url(http://fonts.googleapis.com/css?family=Andika)
 
-//@import "icons/*.png"
+@import "icons/*.png"
 
-//@include all-icons-sprites
+@include all-icons-sprites
+
+.container
+  :width 960px
+  :overflow hidden
+  :margin auto
+
+.container_full
+  :width 1010px
+  :overflow hidden
+  :margin auto
+
+body
+  :line-height 1.2
+  :font-family Andika, sans-serif
+
+.left
+  :float left
+
+.right
+  :float right
+
+a
+  :text-decoration none
+  :color inherit
+
+.ml
+  :margin-left 45px
+
+.mr
+  :margin-right 45px
+
+#top
+  :border-top 17px solid #034269
+  :padding 12px 0 16px
+
+#logo
+  a
+    :width 142px
+    :height 103px
+    :text-indent -99999em
+
+#social
+  li
+    @extend .left
+  a
+    :width 47px
+    :height 48px
+    :display block
+    :text-indent -99999em
+
+#menu_container
+  :width 600px
+
+#menu
+  :position relative
+  :bottom 0
+  :clear both
+  :font-size 20px
+  :margin-top  32px
+
+  li
+    @extend .left
+    :padding-left 18px
+
+    a
+      :color #034269
+
+.box
+  :width 299px
+  :height 174px
+  :color white
+  :text-align center
+  @extend .left
+  :margin 0 16px 0 17px
+  :padding 0 5px
+
+  &:first-child, &:last-child
+    :margin 0
+
+  &:first-child
+    :margin-left -45px
+  &:last-child
+    :margin-right -45px
+
+  h2
+    :font-size 25px
+    :margin-top 15px
+    :padding-bottom 10px
+    :border-bottom 1px solid
+
+  .text
+    :font-size 12px
+    :border-bottom 1px solid
+    :border-top 1px solid
+    :text-align justify
+    :padding 10px 25px
+
+  .read_more
+    :border-top 1px solid
+    :display block
+    :text-indent 4px
+    :padding 5px 0
+
+    span
+      @extend .left
+      :width 13px
+      :height 19px
+      :margin-left 140px
+
+.blue
+  +background-image(linear-gradient(#5f90b1, #507488))
+.green
+  +background-image(linear-gradient(#5f969c, #507a73))
+.gray
+  +background-image(linear-gradient(#7a8e97, #6a726e))
+
+#main
+  :margin 40px auto
+  :color #03436c
+
+  h3.title
+    :font-size 22px
+    :color #7e9ea8
+    :margin-bottom 10px
+
+  .images
+    :margin-top 20px
+
+    img
+      @extend .left
+      :margin-right 14px
+
+    a
+      &:last-child
+        img
+          :margin-right 0
+
+
+#contact
+  :width 332px
+  :color #24a2b9
+
+  .control-group
+    :margin-bottom 5px
+    
+    .help-inline
+      :font-size 13px
+
+    &.error
+      :color red
+
+      input
+        :border-color red
+        :color red
+
+  input
+    &[type=text],
+    &[type=email],
+    &[type=tel]
+      :width 320px
+      :border solid 1px #009bb4
+      :background-color #f3f3f3
+      :padding 5px
+  textarea
+    :min-width 320px
+    :max-width 320px
+    :border solid 1px #009bb4
+    :background-color #f3f3f3
+    :padding 5px
+
+  input[type=submit]
+    :background-color #034269
+    :color white
+    :border none
+    :padding 5px 12px
+    :font-size 15px
+    :cursor pointer
+
+#locale_wrapper
+  :width 500px
+  :font-size 12px
+  :text-align right
+  :margin-bottom 10px
+
+#banner_container
+  :width 960px
+  :overflow hidden
+  :height 380px
+  :margin auto
+
+footer
+  .container
+    :padding 20px 0
+    :color white
+    :font-size 12px
+    :background-color #034269
+
+    .icons-acerte
+      :width 60px
+      :height 32px
+      :text-indent -9999em
