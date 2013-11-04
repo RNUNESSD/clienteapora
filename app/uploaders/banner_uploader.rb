@@ -21,13 +21,6 @@ class BannerUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore.pluralize}/#{mounted_as}"
   end
 
-  #before :cache, :capture_size_before_cache # callback, example here: http://goo.gl/9VGHI
-  def capture_size_before_cache(new_file)
-    if model.upload_width.nil? && model.upload_height.nil?
-      model.upload_width, model.upload_height = `identify -format "%wx %h" #{new_file.path}`.split(/x/).map { |dim| dim.to_i }
-    end
-  end
-
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -40,14 +33,14 @@ class BannerUploader < CarrierWave::Uploader::Base
 
   process :resize_to_model_size
 
+
   version :preview do
     process :resize_to_fill => [200, 140]
   end
 
   def resize_to_model_size
-    resize_to_fill model.banner_category.image_width, model.banner_category.image_height
+    resize_to_fill model.banner_category.image_width, model.banner_category.image_height if model.persisted?
   end
-
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
