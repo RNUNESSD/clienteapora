@@ -2,8 +2,8 @@
 
 <%= simple_form_for [:admin, resource], :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :name, :label => 'Nome', :input_html => { :class => "span6" } %>
-  <%= f.input :image_width, :label => 'Largura', hint: 'medida em pixels', :input_html => { :class => "span6" } %>
-  <%= f.input :image_height, :label => 'Nome', hint: 'medida em pixels', :input_html => { :class => "span6" } %>
+  <%= f.input :image_height, :label => 'Altura da imagem', hint: 'Dimensão medida em pixels. Utilize apenas números', :input_html => { :class => "span6" } %>
+  <%= f.input :image_width, :label => 'Largura da imagem', hint: 'Dimensão medida em pixels. Utilize apenas números', :input_html => { :class => "span6" } %>
   <%= f.input :is_active, :label => 'Está Ativa?' %>
 
   <h3>Imagens</h3>

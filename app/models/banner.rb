@@ -2,7 +2,9 @@
 class Banner < ActiveRecord::Base
   attr_accessible :image, :link, :expires_at, :formated_expires_at
 
-  belongs_to :banner_category
+  belongs_to :banner_category, inverse_of: :banners
+
+  after_save :recreate_image_versions
 
   validates :image, presence: :true
   validates :banner_category, presence: true
@@ -22,4 +24,9 @@ class Banner < ActiveRecord::Base
   end
 
   mount_uploader :image, BannerUploader
+
+  private
+  def recreate_image_versions
+    image.recreate_versions!
+  end
 end
