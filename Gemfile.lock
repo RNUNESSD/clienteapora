@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: e8dcbbe646cd5cc526acdbfa688c8017ee0b9f5f
+  specs:
+    ckeditor (4.0.6)
+      mime-types
+      orm_adapter
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -41,9 +49,6 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
     chunky_png (1.2.8)
-    ckeditor (4.0.6)
-      mime-types
-      orm_adapter
     cocoon (1.2.1)
     coderay (1.1.0)
     coffee-rails (4.0.0)
@@ -196,7 +201,7 @@ DEPENDENCIES
   binding_of_caller
   cancan
   carrierwave
-  ckeditor
+  ckeditor!
   cocoon
   coffee-rails (~> 4.0.0)
   compass-rails (~> 2.0.alpha.0)
