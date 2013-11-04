@@ -67,7 +67,7 @@ gem 'mini_magick'
 
 gem 'will_paginate'
 
-gem 'ckeditor'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 gem 'sendgrid'
 
