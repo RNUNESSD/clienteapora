@@ -7,6 +7,8 @@ class Admin::ApplicationController < ActionController::Base
   respond_to :html
   layout 'admin'
 
+  WillPaginate.per_page = 10
+
   def defaults
     @article_categories_menu = ArticleCategory.active
   end

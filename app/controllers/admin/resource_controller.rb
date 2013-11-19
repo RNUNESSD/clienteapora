@@ -10,4 +10,8 @@ class Admin::ResourceController < Admin::ApplicationController
     update! { collection_path }
   end
 
+  protected
+  def collection
+    @projects ||= end_of_association_chain.paginate(:page => params[:page])
+  end
 end
