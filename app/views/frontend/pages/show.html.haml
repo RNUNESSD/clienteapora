@@ -4,6 +4,5 @@
 
 - if @page.images.any?
   .images
-    - for i in 1..4 do
-      - @page.images.each do |im|
-        = link_to image_tag(im.image_url(:page)), im.image_url, class: 'expand'
+    - @page.images.each do |im|
+      = link_to image_tag(im.image_url(:page)), im.image_url, class: 'expand'
