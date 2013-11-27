@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.1'
 gem 'rails-i18n'
 
 # Use mysql as the database for Active Record
@@ -65,7 +65,7 @@ gem 'friendly_id'
 
 gem 'mini_magick'
 
-gem 'will_paginate'
+gem 'will_paginate', '3.0.5'
 
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
@@ -85,7 +85,11 @@ gem 'haml-rails'
 
 gem 'fancybox2-rails', '~> 0.2.4'
 
+gem 'cycle2-rails', github: 'thinkswan/cycle2-rails', branch: 'rails4'
+
 gem 'bxslider-rails'
+
+gem 'nav-lynx', github: 'vigetlabs/nav_lynx'
 
 group :development do
   gem 'better_errors'
