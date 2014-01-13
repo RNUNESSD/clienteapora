@@ -11,7 +11,7 @@ gem 'mysql2'
 gem 'sass-rails', '~> 4.0.0'
 
 # Use Compass for improve SASS features
-gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -83,13 +83,13 @@ gem 'protected_attributes'
 
 gem 'haml-rails'
 
-gem 'fancybox2-rails', '~> 0.2.4'
+gem 'fancybox2-rails'
 
 gem 'cycle2-rails', github: 'thinkswan/cycle2-rails', branch: 'rails4'
 
 gem 'bxslider-rails'
 
-gem 'nav-lynx', github: 'vigetlabs/nav_lynx'
+gem 'nav_lynx', github: 'vigetlabs/nav_lynx'
 
 group :development do
   gem 'better_errors'
