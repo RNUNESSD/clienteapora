@@ -8,11 +8,4 @@ class DefaultMailer < ActionMailer::Base
     mail subject: 'Contato do Site',
       from: @contact.email
   end
-
-  def agendament(agendament)
-    @agendament = agendament
-    sendgrid_category "Agendamento   "
-    mail subject: 'Agendamento do Site',
-      from: @agendament.email
-  end
 end
