@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require fancybox
 //= require bxslider
+//= require jquery.cycle2
 //= require jquery.inputmask
 //= require jquery.inputmask.extensions
 //= require jquery.inputmask.numeric.extensions
