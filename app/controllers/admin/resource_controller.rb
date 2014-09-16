@@ -14,5 +14,8 @@ class Admin::ResourceController < Admin::ApplicationController
   def collection
     @collection ||= end_of_association_chain.paginate(:page => params[:page])
   end
+
+  def permitted_params
+    params.permit!
   end
 end
