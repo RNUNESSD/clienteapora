@@ -6,8 +6,6 @@ class Banner < ActiveRecord::Base
 
   belongs_to :banner_category, inverse_of: :banners
 
-  after_save :recreate_image_versions
-
   validates :image, presence: :true
   validates :banner_category, presence: true
 
