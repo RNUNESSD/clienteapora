@@ -1,4 +1,4 @@
 .nested-fields
-  = f.input :title, :label => 'Título', :input_html => { :class => "span6" }
-  = f.input :image, as: :image_preview, :label => 'Imagem', :input_html => { :class => "span6", :preview_version => :preview }
+  = f.input :title, :label => 'Título'
+  = f.input :image, as: :image_preview, :label => 'Imagem', :input_html => { :preview_version => :preview }
   = link_to_remove_association "remover imagem", f

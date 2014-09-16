@@ -1,11 +1,11 @@
 h2 Páginas
 = simple_form_for [:admin, resource], :html => { :class => 'form-horizontal' } do |f|
-  = f.input :title, :label => 'Título', :input_html => { :class => "span6" }
-  = f.input :abstract, :label => 'Resumo', :input_html => { :class => "span6" }
-  = f.input :content, :label => 'Conteúdo', :as => :ckeditor, :input_html => { :class => "span6", :ckeditor => { :toolbar => 'Pure' } }
+  = f.input :title, :label => 'Título'
+  = f.input :abstract, :label => 'Resumo'
+  = f.input :content, :label => 'Conteúdo', :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'Pure' } }
   #images
     = f.simple_fields_for :images do |image|
       = render 'image_fields', :f => image
     = link_to_add_association 'adicionar imagem', f, :images
-  .form-actions
-    = f.button :submit, 'Salvar', :class => 'btn-primary'
+
+  = render 'admin/shared/form_actions', f: f

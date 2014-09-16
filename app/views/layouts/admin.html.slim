@@ -46,9 +46,8 @@ html lang="pt-BR"
             = nav_link_to 'Usuários', admin_users_path, {}, { :wrapper => 'li', selected_class: 'active' } if can? :read, User
 
           - if user_signed_in?
-            li.pull-right= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger'
+            .pull-right= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger'
     .container
-      .row
-        .span12
-          = yield
+      .col-lg-12
+        = yield
       footer

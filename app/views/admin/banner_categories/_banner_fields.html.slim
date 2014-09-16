@@ -1,8 +1,8 @@
 .nested-fields
-  = f.input :image, as: :image_preview, :label => 'Imagem', :input_html => { :class => "span6", :preview_version => :preview }
-  = f.input :link, :label => 'Link', :input_html => { :class => "span6" }
-  = f.input :formated_expires_at, :label => 'Expira em', hint: 'Clique no ícone para escolher uma data' , :wrapper => :append, wrapper_html: { class: 'date' } do
-    = f.input_field :formated_expires_at, data: { format: "dd/MM/yyyy hh:mm:ss" }, :class => "span6"
+  = f.input :image, as: :image_preview, :label => 'Imagem', :input_html => { :preview_version => :preview }
+  = f.input :link, :label => 'Link'
+  = f.input :expires_at_string, :label => 'Expira em', hint: 'Clique no ícone para escolher uma data' , wrapper_html: { class: 'date' } do
+    = f.input_field :expires_at_string, data: { format: "dd/MM/yyyy hh:mm:ss" }
     = content_tag :span, :class => "add-on" do
       i data-date-icon="icon-calendar" data-time-icon="icon-time"
   = link_to_remove_association "remover banner", f
