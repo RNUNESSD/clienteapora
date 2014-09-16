@@ -5,7 +5,5 @@ class ArticleCategory < ActiveRecord::Base
 
   validates :name, presence: :true, uniqueness: true
 
-  def self.active
-    where(is_active: true)
-  end
+  scope :active, -> { where(is_active: true) }
 end
