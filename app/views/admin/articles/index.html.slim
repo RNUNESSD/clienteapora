@@ -1,0 +1,11 @@
+h2= parent.name
+table.table.table-bordered.table-striped
+  tr
+    th Título
+    th Ações
+  - collection.each do |r|
+    tr
+      td= r.title
+      td
+        = render 'admin/shared/actions', r: r
+= render 'admin/shared/create'

@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class Banner < ActiveRecord::Base
-  attr_accessible :image, :link, :expires_at, :formated_expires_at
+  #attr_accessible :image, :link, :expires_at, :formated_expires_at
 
   belongs_to :banner_category, inverse_of: :banners
 

@@ -1,0 +1,13 @@
+h2 E-mails
+table.table.table-bordered.table-striped
+  tr
+    th Nome
+    th E-mail
+    th
+  - collection.each do |r|
+    tr
+      td= r.name
+      td= r.email
+      td
+        = render 'admin/shared/actions', r: r
+= render 'admin/shared/create'

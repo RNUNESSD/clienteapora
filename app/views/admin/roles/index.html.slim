@@ -1,0 +1,11 @@
+h2 Grupos
+table.table.table-bordered.table-striped
+  tr
+    th Nome
+    th
+  - collection.each do |r|
+    tr
+      td= r.name
+      td
+        = render 'admin/shared/actions', r: r
+= render 'admin/shared/create'

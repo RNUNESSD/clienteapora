@@ -2,7 +2,7 @@ class Page < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  attr_accessible :title, :abstract, :content, :images_attributes
+  #attr_accessible :title, :abstract, :content, :images_attributes
 
   attr_readonly :title
 

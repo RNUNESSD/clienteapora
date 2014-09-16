@@ -1,5 +1,5 @@
 class BannerCategory < ActiveRecord::Base
-  attr_accessible :name, :is_active, :banners_attributes, :image_width, :image_height
+  #attr_accessible :name, :is_active, :banners_attributes, :image_width, :image_height
 
   has_many :banners, inverse_of: :banner_category
 

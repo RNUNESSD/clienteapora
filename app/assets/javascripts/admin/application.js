@@ -12,10 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require ckeditor/override
 //= require ckeditor/init
 //= require cocoon
-//= require twitter/bootstrap
-//= require bootstrap-datetimepicker
-//= require bootstrap-datetimepicker.pt-BR
+//= require bootstrap
+// require bootstrap-datetimepicker
+// require bootstrap-datetimepicker.pt-BR
 //= require_tree .

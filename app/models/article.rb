@@ -3,9 +3,11 @@ class Article < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  attr_accessible :title, :abstract, :formated_published_at, :published_at, :content, :images_attributes
+  #attr_accessible :title, :abstract, :formated_published_at, :published_at, :content, :images_attributes
 
   has_many :images, as: :imageable
+
+  belongs_to :article_category
 
   validates :title, presence: true, uniqueness: true
   validates :content, presence: true

@@ -3,8 +3,7 @@ class Admin::ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery
 
-  before_filter :defaults, :authenticate_user!
-  respond_to :html
+  before_action :defaults, :authenticate_user!
   layout 'admin'
 
   WillPaginate.per_page = 10

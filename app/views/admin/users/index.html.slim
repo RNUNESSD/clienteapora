@@ -1,0 +1,17 @@
+h2 Usuários
+table.table.table-bordered.table-striped
+  tr
+    th E-mail
+    th Ativo
+    th Último Login
+    th
+  - collection.each do |r|
+    tr
+      td= r.email
+      td
+        = render 'admin/shared/is_active', r: r
+
+      td= r.last_sign_in_at
+      td
+        = render 'admin/shared/actions', r: r
+= render 'admin/shared/create'
