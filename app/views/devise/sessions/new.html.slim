@@ -1,8 +1,8 @@
 h2 Login
 = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   .form-inputs
-    = f.input :email, label: false, input_html: { placeholder: 'E-mail', class: 'span4' }, :required => false, :autofocus => true
-    = f.input :password, label: false, input_html: { placeholder: 'Senha', class: 'span4' }, :required => false
+    = f.input :email, label: false, input_html: { placeholder: 'E-mail' }, :required => false, :autofocus => true
+    = f.input :password, label: false, input_html: { placeholder: 'Senha' }, :required => false
     = f.input :remember_me, label: false, hint: 'Lembrar Senha',  :as => :boolean if devise_mapping.rememberable?
   = f.button :submit, "Entrar", class: 'btn-large btn-block btn-primary'
 = render "devise/shared/links"
