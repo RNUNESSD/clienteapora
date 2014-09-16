@@ -12,6 +12,7 @@ class Admin::ResourceController < Admin::ApplicationController
 
   protected
   def collection
-    @projects ||= end_of_association_chain.paginate(:page => params[:page])
+    @collection ||= end_of_association_chain.paginate(:page => params[:page])
+  end
   end
 end
