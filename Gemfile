@@ -57,8 +57,6 @@ gem 'bxslider-rails'
 
 gem 'nav_lynx'
 
-gem 'plupload-rails'
-
 gem 'stringify_date', '0.0.2'
 
 group :development do
