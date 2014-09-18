@@ -23,7 +23,7 @@ gem 'devise-i18n'
 
 gem 'cancan'
 
-gem 'simple_form', '3.1.0.rc1'
+gem 'simple_form', '3.1.0.rc2'
 
 gem 'carrierwave'
 
@@ -68,5 +68,6 @@ group :development do
 end
 
 gem 'bootstrap-sass'
+gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'font-awesome-rails'

@@ -76,7 +76,7 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    devise-i18n (0.11.0)
+    devise-i18n (0.11.1)
     erubis (2.7.0)
     execjs (2.2.1)
     fancybox2-rails (0.2.8)
@@ -157,7 +157,7 @@ GEM
     sendgrid (1.2.0)
       json
       json
-    simple_form (3.1.0.rc1)
+    simple_form (3.1.0.rc2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
     slim (2.0.3)
@@ -217,6 +217,7 @@ DEPENDENCIES
   jquery-rails
   meta_request
   mini_magick
+  momentjs-rails (>= 2.8.1)
   mysql2
   nav_lynx
   newrelic_rpm
@@ -225,7 +226,7 @@ DEPENDENCIES
   rails-i18n
   sass-rails (~> 4.0.3)
   sendgrid
-  simple_form (= 3.1.0.rc1)
+  simple_form (= 3.1.0.rc2)
   slim
   spring
   stringify_date (= 0.0.2)
