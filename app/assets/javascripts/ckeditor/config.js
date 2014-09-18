@@ -74,12 +74,12 @@ CKEDITOR.editorConfig = function( config )
       var dialogDefinition = ev.data.definition;
       var content, upload;
 
-      if (CKEDITOR.tools.indexOf(['link', 'image', 'attachment', 'flash'], dialogName) > -1) 
+      if (CKEDITOR.tools.indexOf(['link', 'image', 'attachment', 'flash'], dialogName) > -1)
       {
         content = (dialogDefinition.getContents('Upload') || dialogDefinition.getContents('upload'));
         upload = (content == null ? null : content.get('upload'));
 
-        if (upload && upload.filebrowser && upload.filebrowser['params'] === undefined) 
+        if (upload && upload.filebrowser && upload.filebrowser['params'] === undefined)
         {
           upload.filebrowser['params'] = config.filebrowserParams();
           upload.action = config.addQueryString(upload.action, upload.filebrowser['params']);
@@ -98,7 +98,6 @@ CKEDITOR.editorConfig = function( config )
       { name: 'paragraph',   items: [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ] },
       { name: 'links',       items: [ 'Link','Unlink','Anchor' ] },
       '/',
-      { name: 'styles',      items: [ 'Styles','Format','Font','FontSize' ] },
       { name: 'colors',      items: [ 'TextColor','BGColor' ] },
       { name: 'insert',      items: [ 'Image','Flash','Table','HorizontalRule','SpecialChar','PageBreak' ] },
     ];

@@ -3,7 +3,7 @@ h2 Usuários
   = f.input :email, :label => 'E-mail'
   = f.input :password, :label => 'Senha'
   = f.input :password_confirmation, :label => 'Repita a Senha'
-  = f.association :roles, as: :check_boxes, :label => 'Grupos'
+  = f.association :roles, as: :check_boxes, :label => 'Grupos', wrapper: :horizontal_radio_and_checkboxes
   = f.input :is_active, :label => 'Está Ativo?'
 
   = render 'admin/shared/form_actions', f: f
