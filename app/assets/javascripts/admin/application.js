@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require ckeditor/init
 //= require cocoon
-//= require bootstrap
-// require bootstrap-datetimepicker
-// require bootstrap-datetimepicker.pt-BR
+//= require bootstrap-sprockets
+//= require moment
+//= require moment/pt-br
+//= require bootstrap-datetimepicker
 //= require_tree .
