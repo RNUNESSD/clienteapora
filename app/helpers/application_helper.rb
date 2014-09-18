@@ -24,7 +24,7 @@ module ApplicationHelper
       end
     end
     def html_container(html)
-      tag(:div, tag(:ul, html), container_attributes)
+      tag(:ul, html, container_attributes)
     end
     private
     def link(text, target, attributes = {})
