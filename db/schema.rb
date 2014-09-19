@@ -16,10 +16,12 @@ ActiveRecord::Schema.define(version: 20131101140153) do
   create_table "article_categories", force: true do |t|
     t.string  "name"
     t.boolean "is_active", default: true
+    t.string  "slug"
   end
 
   add_index "article_categories", ["is_active"], name: "index_article_categories_on_is_active", using: :btree
   add_index "article_categories", ["name"], name: "index_article_categories_on_name", unique: true, using: :btree
+  add_index "article_categories", ["slug"], name: "index_article_categories_on_slug", unique: true, using: :btree
 
   create_table "articles", force: true do |t|
     t.string   "title"

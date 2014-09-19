@@ -1,0 +1,10 @@
+#contact_wrapper
+  h3.title Contato
+
+  = simple_form_for @contact, url: send_contact_path, html: { id: "contact" }, wrapper: :default do |f|
+    = f.input :name, label: 'Nome:'
+    = f.input :company, label: 'Empresa:'
+    = f.input :email, label: 'E-mail:'
+    = f.input :phone, label: 'Telefone:'
+    = f.input :comment, label: 'Mensagem:', as: :text
+    = f.submit 'Enviar', class: 'right'

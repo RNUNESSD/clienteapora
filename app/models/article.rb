@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 
-  stringify :published_at
+  stringify :published_at, format: '%d/%m/%Y %H:%M:%S'
 
   has_many :images, as: :imageable
 

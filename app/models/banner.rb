@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class Banner < ActiveRecord::Base
-  stringify :expires_at
+  stringify :expires_at, format: '%d/%m/%Y %H:%M:%S'
 
   belongs_to :banner_category, inverse_of: :banners
 
