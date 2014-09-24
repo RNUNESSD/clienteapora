@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor/init
-//= require ckeditor/config
 //= require cocoon
 //= require bootstrap-sprockets
 //= require moment
