@@ -7,11 +7,10 @@ Target::Application.routes.draw do
 
   post '/newsletter/cadastrar' => 'frontend/home#create_newsletter', as: :create_newsletter
 
-  get '/conteudo/:slug' => 'frontend/pages#show', as: :page
+  get '/pagina/:slug' => 'frontend/pages#show', as: :page
 
-  get '/noticias' => 'frontend/articles#index', as: :notices
-
-  get '/noticias/:slug' => 'frontend/articles#show', as: :notice
+  get '/conteudo/:article_category_slug' => 'frontend/articles#index', as: :articles
+  get '/conteudo/:article_category_slug/:slug' => 'frontend/articles#show', as: :article
 
   devise_for :user, path: 'admin'
   namespace :admin do
