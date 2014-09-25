@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 20131101140153) do
 
   add_index "articles", ["article_category_id"], name: "articles_article_category_id_fk", using: :btree
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
-  add_index "articles", ["title"], name: "index_articles_on_title", unique: true, using: :btree
 
   create_table "banner_categories", force: true do |t|
     t.string  "name"
