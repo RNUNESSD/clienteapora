@@ -11,7 +11,6 @@ class CreateArticles < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :articles, :title, :unique => true
     add_index :articles, :slug, :unique => true
     add_foreign_key :articles, :article_categories
   end
