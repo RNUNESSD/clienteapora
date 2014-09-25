@@ -20,6 +20,14 @@ module Target
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = 'pt-BR'
 
+    config.version = begin
+      MAJOR = 3
+      MINOR = 0
+      TINY = 2
+
+      [MAJOR, MINOR, TINY].compact.join(".")
+    end
+
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end
