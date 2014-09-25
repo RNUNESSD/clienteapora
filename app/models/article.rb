@@ -9,7 +9,7 @@ class Article < ActiveRecord::Base
 
   belongs_to :article_category
 
-  validates :title, presence: true, uniqueness: true
+  validates :title, presence: true
   validates :content, presence: true
 
   accepts_nested_attributes_for :images, allow_destroy: true
