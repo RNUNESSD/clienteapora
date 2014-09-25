@@ -3,3 +3,7 @@ pt-BR:
     previous_label: "&laquo;"
     next_label: "&raquo;"
     page_gap: "&hellip;"
+
+  errors:
+    messages:
+      blank: preenchimento obrigatório
