@@ -23,7 +23,7 @@ module Target
     config.version = begin
       MAJOR = 3
       MINOR = 0
-      TINY = 2
+      TINY = 3
 
       [MAJOR, MINOR, TINY].compact.join(".")
     end
