@@ -57,7 +57,7 @@ gem 'bxslider-rails'
 
 gem 'nav_lynx'
 
-gem 'stringify_date', '0.0.4'
+gem 'stringify_date', '0.0.5'
 
 group :development do
   gem 'better_errors'
