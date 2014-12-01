@@ -61,6 +61,12 @@ task :'setup:db:database_yml' => :environment do
   }
 end
 
+desc "Seed data to the database"
+task :seed => :environment do
+  queue "cd #{deploy_to}/current"
+  queue "bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+end
+
 desc "Deploys the current version to the server."
 task :deploy => :environment do
   deploy do
