@@ -7,7 +7,20 @@
 //@include all-icons-sprites
 
 \*:focus
-  :outline 0
+  :outline 0 !important
+
+abbr[title]
+  :border none !important
+
+a
+  &:hover, &:active, &:visited
+    :text-decoration none  
+
+.text-indent
+  :text-indent -99999em
+
+.all-size
+  :width 100%  
 
 .relative
   :position relative
