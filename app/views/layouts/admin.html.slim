@@ -19,9 +19,8 @@ html lang="pt-BR"
       header.bg-white.header.header-md.navbar.navbar-fixed-top-xs.box-shadow
         .navbar-header.aside-md.dk
           a.btn.btn-link.visible-xs data-target="#nav,html" data-toggle="class:nav-off-screen,open" 
-            i.fa.fa-bars
-          a.navbar-brand href="index.html" 
-            /img.m-r-sm alt="scale" src="images/logo.png" /
+            = fa_icon 'bars'
+          = link_to admin_root_path, class: 'navbar-brand' do
             span.hidden-nav-xs Agência Acerte
           a.btn.btn-link.visible-xs data-target=".user" data-toggle="dropdown" 
             i.fa.fa-cog
@@ -47,18 +46,18 @@ html lang="pt-BR"
                   nav.nav-primary.hidden-xs
                     .text-muted.text-sm.hidden-nav-xs.padder.m-t-sm.m-b-sm Target
                     ul.nav.nav-main data-ride="collapse" 
-                      li.active
-                        = link_to admin_root_path do 
+                      li
+                        = nav_link_to admin_root_path do 
                           = fa_icon 'dashboard'
                           span.font-bold Dashboard
                       - if can? :read, BannerCategory
                         li
-                          = link_to admin_banner_categories_path do 
+                          = nav_link_to admin_banner_categories_path do 
                             = fa_icon 'image'
                             span.font-bold Banners
                       - if (can?(:read, Article) || can?(:read, ArticleCategory))
                         li
-                          = link_to '#', class: 'auto' do 
+                          = nav_link_to '#', {}, { url_segment: 1 }, class: 'auto' do 
                             span.pull-right.text-muted
                               .text
                                 = fa_icon 'angle-down'
@@ -69,18 +68,18 @@ html lang="pt-BR"
                           ul.nav.dk
                             - if can? :read, ArticleCategory
                             li
-                              = link_to admin_article_categories_path do
+                              = nav_link_to admin_article_categories_path do
                                 = fa_icon 'share-alt-square'
                                 span Categorias
                             - if can? :read, Article
                               - @article_categories_menu.each do |category|
                                 li
-                                  = link_to admin_article_category_articles_path(category), class: 'auto' do
+                                  = nav_link_to admin_article_category_articles_path(category), class: 'auto' do
                                     = fa_icon 'gear'
                                     span= category.name
                       - if can? :read, Page
                         li
-                          = link_to admin_pages_path do
+                          = nav_link_to admin_pages_path do
                             = fa_icon 'book'
                             span.font-bold Páginas
                       - if can? :read, User

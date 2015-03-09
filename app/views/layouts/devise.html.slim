@@ -16,6 +16,8 @@ html lang="pt-BR"
       = javascript_include_tag 'html5shiv-printshiv'
 
   body
-    .container
-      .form-signin
-        = yield
+    section#content.m-t-lg.wrapper-md.animated.fadeInUp
+      .container.aside-xl
+        .name-business.block  Agência Acerte
+        section.m-b-lg
+          = yield
