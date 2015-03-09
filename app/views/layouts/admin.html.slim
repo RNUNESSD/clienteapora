@@ -15,48 +15,107 @@ html lang="pt-BR"
       = javascript_include_tag 'html5shiv-printshiv'
 
   body
-    header
-      .navbar.navbar-inverse.navbar-fixed-top(role="navigation")
-        .container
-          .navbar-header
-            button.navbar-toggle.collapsed data-target="#navbar-collapse-1" data-toggle="collapse" type="button"
-              span.sr-only Alterar Navegação
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            = link_to 'Target', admin_root_path, class: 'navbar-brand'
-
-          #navbar-collapse-1.collapse.navbar-collapse
-            ul.nav.navbar-nav
-              = nav_link_to 'Páginas', admin_pages_path, {}, { :wrapper => 'li', selected_class: 'active' } if can? :read, Page
-              = nav_link_to 'Banners', admin_banner_categories_path, {}, { :wrapper => 'li', selected_class: 'active' } if can? :read, BannerCategory
-
-              li.dropdown
-                - if (can?(:read, Article) || can?(:read, ArticleCategory))
-                  = link_to 'Conteúdo', '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' }
-                  ul.dropdown-menu aria-labelledby="dLabel" role="menu"
-                    li= link_to 'Categorias', admin_article_categories_path if can? :read, ArticleCategory
-
-                    - if can? :read, Article
-                      - @article_categories_menu.each do |category|
-                        li= link_to category.name, admin_article_category_articles_path(category)
-
-              = nav_link_to 'E-mails', admin_newsletters_path, {}, { :wrapper => 'li', selected_class: 'active' } if can? :read, Newsletter
-              = nav_link_to 'Grupos', admin_roles_path, {}, { :wrapper => 'li', selected_class: 'active' } if can? :read, Role
-              = nav_link_to 'Permissões', admin_permissions_path, {}, { :wrapper => 'li', selected_class: 'active' } if can? :read, Permission
-              = nav_link_to 'Usuários', admin_users_path, {}, { :wrapper => 'li', selected_class: 'active' } if can? :read, User
-
+    section.vbox
+      header.bg-white.header.header-md.navbar.navbar-fixed-top-xs.box-shadow
+        .navbar-header.aside-md.dk
+          a.btn.btn-link.visible-xs data-target="#nav,html" data-toggle="class:nav-off-screen,open" 
+            i.fa.fa-bars
+          a.navbar-brand href="index.html" 
+            /img.m-r-sm alt="scale" src="images/logo.png" /
+            span.hidden-nav-xs Agência Acerte
+          a.btn.btn-link.visible-xs data-target=".user" data-toggle="dropdown" 
+            i.fa.fa-cog
+        ul.nav.navbar-nav.navbar-right.m-n.hidden-xs.nav-user.user
+          
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#" 
+              
+              - if user_signed_in?
+                = current_user.email
+              b.caret
             - if user_signed_in?
-              .pull-right.sign-out= link_to "Sair", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger'
-    section#main
-      .container
-        .col-sm-12
-          = yield
-        .clearfix
-    footer
-      .container
-        .col-sm-12
-          .pull-left
-            | &copy; Target #{Date.today.year}
-          .pull-right
-            | v #{Target::Application.config.version}
+              ul.dropdown-menu.animated.fadeInRight
+                li
+                  = link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :toggle => "ajaxModal"}
+      section
+        section.hbox.stretch
+          /! .aside
+          aside#nav.bg-black.aside-md.hidden-print.hidden-xs
+            section.vbox
+              section.w-f.scrollable
+                .slim-scroll data-disable-fade-out="true" data-distance="0" data-height="auto" data-railopacity="0.2" data-size="10px" 
+                  nav.nav-primary.hidden-xs
+                    .text-muted.text-sm.hidden-nav-xs.padder.m-t-sm.m-b-sm Target
+                    ul.nav.nav-main data-ride="collapse" 
+                      li.active
+                        = link_to admin_root_path do 
+                          = fa_icon 'dashboard'
+                          span.font-bold Dashboard
+                      - if can? :read, BannerCategory
+                        li
+                          = link_to admin_banner_categories_path do 
+                            = fa_icon 'image'
+                            span.font-bold Banners
+                      - if (can?(:read, Article) || can?(:read, ArticleCategory))
+                        li
+                          = link_to '#', class: 'auto' do 
+                            span.pull-right.text-muted
+                              .text
+                                = fa_icon 'angle-down'
+                              .text-active
+                                = fa_icon 'angle-up'
+                            = fa_icon 'sitemap'
+                            span.font-bold Conteúdo
+                          ul.nav.dk
+                            - if can? :read, ArticleCategory
+                            li
+                              = link_to admin_article_categories_path do
+                                = fa_icon 'share-alt-square'
+                                span Categorias
+                            - if can? :read, Article
+                              - @article_categories_menu.each do |category|
+                                li
+                                  = link_to admin_article_category_articles_path(category), class: 'auto' do
+                                    = fa_icon 'gear'
+                                    span= category.name
+                      - if can? :read, Page
+                        li
+                          = link_to admin_pages_path do
+                            = fa_icon 'book'
+                            span.font-bold Páginas
+                      - if can? :read, User
+                        li
+                          = nav_link_to admin_users_path do
+                            = fa_icon 'user'
+                            span.font-bold Usuários 
+                      - if can? :read, Role
+                        li
+                          = nav_link_to admin_roles_path do 
+                            = fa_icon 'users'
+                            span.font-bold Grupos    
+                      - if can? :read, Permission
+                        li
+                          = nav_link_to admin_permissions_path do
+                            = fa_icon 'lock'
+                            span.font-bold Permissão        
+              footer.footer.hidden-xs.no-padder.text-center-nav-xs
+                a.btn.btn-icon.icon-muted.btn-inactive.m-l-xs.m-r-xs data-toggle="class:nav-xs" href="#nav" 
+                  .text
+                    = fa_icon 'reply'
+                  .text-active
+                    = fa_icon 'share'  
+          section#content
+            section.hbox.stretch
+              section
+                section.vbox
+                  section.scrollable.padder
+                    section.row.m-b-md
+                      .col-md-12
+                        = yield   
+              /footer
+                .container
+                  .col-sm-12
+                    .pull-left
+                      | &copy; Target #{Date.today.year}
+                    .pull-right
+                      | v #{Target::Application.config.version}

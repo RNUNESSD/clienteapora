@@ -7,8 +7,12 @@
 //= require chosen/chosen.jquery.min
 //= require file-input/bootstrap-filestyle.min
 //= require file-input/bootstrap.file-input
+//= require jquery-hotkeys
 //= require moment
 //= require moment/pt-br
+//= require jquery.minicolors
+//= require jquery.minicolors.simple_form
 //= require bootstrap-datetimepicker
 //= require ckeditor/init
 //= require ckeditor/config
+//= require locales/bootstrap-datetimepicker.pt-BR
