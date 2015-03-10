@@ -5,6 +5,7 @@
 //= require app
 //= require nestable/jquery.nestable
 //= require chosen/chosen.jquery.min
+//= require calendar/bootstrap_calendar
 //= require file-input/bootstrap-filestyle.min
 //= require file-input/bootstrap.file-input
 //= require moment

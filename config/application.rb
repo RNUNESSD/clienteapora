@@ -21,9 +21,9 @@ module Target
     config.i18n.default_locale = 'pt-BR'
 
     config.version = begin
-      MAJOR = 3
+      MAJOR = 4
       MINOR = 0
-      TINY = 3
+      TINY = 0
 
       [MAJOR, MINOR, TINY].compact.join(".")
     end

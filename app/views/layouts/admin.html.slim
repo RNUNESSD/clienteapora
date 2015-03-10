@@ -111,10 +111,10 @@ html lang="pt-BR"
                     section.row.m-b-md
                       .col-md-12
                         = yield   
-              /footer
-                .container
-                  .col-sm-12
-                    .pull-left
-                      | &copy; Target #{Date.today.year}
-                    .pull-right
-                      | v #{Target::Application.config.version}
+            footer
+              .container
+                .col-sm-6.col-sm-offset-3
+                  .pull-left
+                    | &copy; #{Date.today.year} | Todos os direitos reservados. 
+                  .pull-right
+                    | v #{Target::Application.config.version}

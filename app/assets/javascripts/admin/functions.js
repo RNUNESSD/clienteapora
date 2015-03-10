@@ -48,4 +48,6 @@ $(function() {
   if ($('.active').hasClass('item_menu')) {
     $('.active').parents('li').addClass('active')
   }
+
+  
 });
