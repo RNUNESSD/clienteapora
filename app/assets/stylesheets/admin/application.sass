@@ -6,6 +6,7 @@
 @import chosen
 @import bootstrap-datetimepicker
 @import bootstrap_calendar
+@import jquery.plupload.queue
 
 
 \*:focus
@@ -25,3 +26,39 @@ abbr[title]
 .selected
   :background #1AAE88 !important
   :color #fff !important
+
+#uploader
+  :width 100%
+
+#gallery_images
+  :margin 20px 0
+  :width 100%
+
+  .gallery-image
+    :width 176px
+    :position relative
+    :margin 10px 4px 0
+
+  .remove-image
+    :top 3px
+    :right 8px
+    :position absolute
+    :font-size 18px
+    :background #fff
+    :color red
+    :padding 5px
+    //+border-radius(5px)  
+
+.plupload_filelist_footer
+  :height 42px
+  :margin-bottom 10px
+
+.plupload_header  
+  :background #1aae88
+
+  .plupload_header_content
+    :background-image unset
+    :padding-left 10px
+
+.dd3-content
+  :height 156px

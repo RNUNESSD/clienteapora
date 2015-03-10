@@ -13,3 +13,10 @@
 //= require bootstrap-datetimepicker
 //= require ckeditor/init
 //= require ckeditor/config
+//= require moxie
+//= require plupload.dev
+//= require plupload/i18n/pt_BR
+//= require plupload.settings
+//= require jquery.plupload.queue
+// require jquery.ui.plupload
+//= require_tree .

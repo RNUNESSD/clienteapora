@@ -1,14 +1,18 @@
 h2 Banner - Categorias
-table.table.table-bordered.table-striped
-  tr
-    th Nome
-    th Está Ativa?
-    th
-  - collection.each do |r|
-    tr
-      td= r.name
-      td
-        = render 'admin/shared/is_active', r: r
-      td
-        = render 'admin/shared/actions', r: r
+.panel.panel-default
+  .table-responsive
+    table.table.table-striped.b-t.b-light
+      thead
+        tr
+          th Nome
+          th Está Ativa?
+          th(width=310)
+      tbody    
+        - collection.each do |r|
+          tr
+            td= r.name
+            td= render 'admin/shared/is_active', r: r
+            td
+              = render 'admin/shared/actions', r: r
+              = link_to 'imagens', resource_path(r), class: 'btn btn-danger btn-sm' if can? :show, resource_class
 = render 'admin/shared/create'

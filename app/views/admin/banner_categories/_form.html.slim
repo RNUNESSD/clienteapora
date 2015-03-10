@@ -1,13 +1,20 @@
-h2 Banner - Categorias
+h2 Categorias de Banner
 = simple_form_for [:admin, resource], :html => { :class => 'form-horizontal' } do |f|
-  = f.input :name, :label => 'Nome'
-  = f.input :image_height, :label => 'Altura da imagem', hint: 'Dimensão medida em pixels. Utilize apenas números'
-  = f.input :image_width, :label => 'Largura da imagem', hint: 'Dimensão medida em pixels. Utilize apenas números'
-  = f.input :is_active, :label => 'Está Ativa?'
-  h3 Imagens
-  #images
-    = f.simple_fields_for :banners do |banner|
-      = render 'banner_fields', :f => banner
-    = link_to_add_association 'adicionar banner', f, :banners
+  section.panel.panel-default
+    header.panel-heading.font-bold
+      = resource.new_record? ? "Adicionar Categoria de Banner" : "Editar Categoria de Banner #{resource.name}"
+    .panel-body
+      = f.input :name, :label => 'Nome'
+      .line.line-dashed.b-b.line-lg.pull-in
+      = f.input :image_height, :label => 'Altura da imagem', hint: 'Dimensão medida em pixels. Utilize apenas números'
+      .line.line-dashed.b-b.line-lg.pull-in  
+      = f.input :image_width, :label => 'Largura da imagem', hint: 'Dimensão medida em pixels. Utilize apenas números'
+      .line.line-dashed.b-b.line-lg.pull-in
+      = f.input :is_active, :label => 'Está Ativa?'
+    /h3 Imagens
+    /#images
+      = f.simple_fields_for :banners do |banner|
+        = render 'banner_fields', :f => banner
+      = link_to_add_association 'adicionar banner', f, :banners
 
   = render 'admin/shared/form_actions', f: f

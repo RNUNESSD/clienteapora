@@ -14,10 +14,28 @@ Target::Application.routes.draw do
 
   devise_for :user, path: 'admin'
   namespace :admin do
-    resources :pages, :newsletters, :links, :banners, :banner_categories, :users, :roles, :permissions
+    resources :pages, :newsletters, :links, :users, :roles, :permissions
+    
     resources :article_categories do
       resources :articles
     end
+
+    resources :banner_categories do
+      #get 'change_status', on: :member 
+      resources :banners do
+        collection do
+          post :update_position
+        end
+      end
+    end
+
+    #resources :pages do
+    #  resources :images do
+     #   collection do
+     #     post :update_position
+     #   end
+     # end
+    #end
 
     root to: 'dashboard#index'
   end
