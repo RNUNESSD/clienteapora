@@ -5,7 +5,7 @@ html lang="pt-BR"
     meta name="keywords" content="template language"
     meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
-    title= content_for?(:title) ? yield(:title) : "Target"
+    title= content_for?(:title) ? yield(:title) : "Agência Acerte"
 
     = stylesheet_link_tag "admin/application", media: "all"
     = javascript_include_tag "admin/application"
@@ -21,7 +21,8 @@ html lang="pt-BR"
           a.btn.btn-link.visible-xs data-target="#nav,html" data-toggle="class:nav-off-screen,open" 
             = fa_icon 'bars'
           = link_to admin_root_path, class: 'navbar-brand' do
-            span.hidden-nav-xs Agência Acerte
+            = image_tag 'logo-target.png'
+            /span.hidden-nav-xs Agência Acerte
           a.btn.btn-link.visible-xs data-target=".user" data-toggle="dropdown" 
             i.fa.fa-cog
         ul.nav.navbar-nav.navbar-right.m-n.hidden-xs.nav-user.user
@@ -44,7 +45,7 @@ html lang="pt-BR"
               section.w-f.scrollable
                 .slim-scroll data-disable-fade-out="true" data-distance="0" data-height="auto" data-railopacity="0.2" data-size="10px" 
                   nav.nav-primary.hidden-xs
-                    .text-muted.text-sm.hidden-nav-xs.padder.m-t-sm.m-b-sm Target
+                    .text-muted.text-sm.hidden-nav-xs.padder.m-t-sm.m-b-sm Agência Acerte
                     ul.nav.nav-main data-ride="collapse" 
                       li
                         = nav_link_to admin_root_path do 

@@ -12,5 +12,6 @@ h2 Páginas
             td= r.title
             td.links-actions
               = render 'admin/shared/actions', r: r
-              = link_to 'Imagens', resource_path(r), class: 'btn btn-success btn-sm' if can? :show, resource_class
+              - if can? :show, resource_class
+                = render 'admin/shared/action_images', r: r
 = render 'admin/shared/create'
