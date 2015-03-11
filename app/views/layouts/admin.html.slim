@@ -47,18 +47,16 @@ html lang="pt-BR"
                   nav.nav-primary.hidden-xs
                     .text-muted.text-sm.hidden-nav-xs.padder.m-t-sm.m-b-sm Agência Acerte
                     ul.nav.nav-main data-ride="collapse" 
-                      li
-                        = nav_link_to admin_root_path do 
+                      = nav_link_to admin_root_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active'} do 
                           = fa_icon 'dashboard'
                           span.font-bold Dashboard
                       - if can? :read, BannerCategory
-                        li
-                          = nav_link_to admin_banner_categories_path do 
+                        = nav_link_to admin_banner_categories_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
                             = fa_icon 'image'
                             span.font-bold Banners
                       - if (can?(:read, Article) || can?(:read, ArticleCategory))
                         li
-                          = nav_link_to '#', {}, { url_segment: 1 }, class: 'auto' do 
+                          a.auto href="#" 
                             span.pull-right.text-muted
                               .text
                                 = fa_icon 'angle-down'
@@ -68,36 +66,30 @@ html lang="pt-BR"
                             span.font-bold Conteúdo
                           ul.nav.dk
                             - if can? :read, ArticleCategory
-                            li
-                              = nav_link_to admin_article_categories_path do
+                              = nav_link_to admin_article_categories_path, {:class => 'menu_link link-active'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
                                 = fa_icon 'share-alt-square'
                                 span Categorias
                             - if can? :read, Article
                               - @article_categories_menu.each do |category|
-                                li
-                                  = nav_link_to admin_article_category_articles_path(category), class: 'auto' do
+                                = nav_link_to admin_article_category_articles_path(category), {:class => 'menu_link link-active'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 3 } do
                                     = fa_icon 'gear'
                                     span= category.name
                       - if can? :read, Page
-                        li
-                          = nav_link_to admin_pages_path do
-                            = fa_icon 'book'
-                            span.font-bold Páginas
+                        = nav_link_to admin_pages_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
+                          = fa_icon 'book'
+                          span Páginas
                       - if can? :read, User
-                        li
-                          = nav_link_to admin_users_path do
-                            = fa_icon 'user'
-                            span.font-bold Usuários 
+                        = nav_link_to admin_users_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 }
+                          = fa_icon 'user'
+                          span.font-bold Usuários 
                       - if can? :read, Role
-                        li
-                          = nav_link_to admin_roles_path do 
-                            = fa_icon 'users'
-                            span.font-bold Grupos    
+                        = nav_link_to admin_roles_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
+                          = fa_icon 'users'
+                          span.font-bold Grupos    
                       - if can? :read, Permission
-                        li
-                          = nav_link_to admin_permissions_path do
-                            = fa_icon 'lock'
-                            span.font-bold Permissão        
+                        = nav_link_to admin_permissions_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 }
+                          = fa_icon 'lock'
+                          span.font-bold Permissão        
                 footer.footer.hidden-xs.no-padder.text-center-nav-xs
                   a.btn.btn-icon.icon-muted.btn-inactive.m-l-xs.m-r-xs data-toggle="class:nav-xs" href="#nav" 
                     .text
