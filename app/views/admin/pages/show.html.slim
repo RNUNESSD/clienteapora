@@ -18,7 +18,7 @@ h2 = resource.title
                     = f.input :title, label: 'Título'
                     = f.submit 'Atualizar', class: 'btn btn-primary'
                 .col-md-2
-                  = link_to admin_page_page_image_path(resource, image), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger mt-15' do
+                  = link_to admin_page_page_image_path(resource, image), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger mt-15 pull-right' do
                     = fa_icon 'trash'
                
 #uploader.span12.pull-left
