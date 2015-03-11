@@ -1,11 +1,16 @@
 h2 Páginas
-table.table.table-bordered.table-striped
-  tr
-    th Título
-    th
-  - collection.each do |r|
-    tr
-      td= r.title
-      td
-        = render 'admin/shared/actions', r: r
+.panel.panel-default
+  .table-responsive
+    table.table.table-striped.b-t.b-light
+      thead
+        tr
+          th Título
+          th(width=210) Ações
+      tbody
+        - collection.each do |r|
+          tr
+            td= r.title
+            td.links-actions
+              = render 'admin/shared/actions', r: r
+              = link_to 'Imagens', resource_path(r), class: 'btn btn-success btn-sm' if can? :show, resource_class
 = render 'admin/shared/create'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311114915) do
+ActiveRecord::Schema.define(version: 20150311130945) do
 
   create_table "article_categories", force: true do |t|
     t.string  "name"
@@ -111,6 +111,17 @@ ActiveRecord::Schema.define(version: 20150311114915) do
   add_index "newsletters", ["email"], name: "index_newsletters_on_email", unique: true, using: :btree
   add_index "newsletters", ["name"], name: "index_newsletters_on_name", using: :btree
 
+  create_table "page_images", force: true do |t|
+    t.string   "image"
+    t.string   "title"
+    t.integer  "position"
+    t.integer  "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "page_images", ["page_id"], name: "page_images_page_id_fk", using: :btree
+
   create_table "pages", force: true do |t|
     t.string   "title"
     t.string   "abstract"
@@ -182,6 +193,8 @@ ActiveRecord::Schema.define(version: 20150311114915) do
   add_foreign_key "articles", "article_categories", name: "articles_article_category_id_fk"
 
   add_foreign_key "banners", "banner_categories", name: "banners_banner_category_id_fk"
+
+  add_foreign_key "page_images", "pages", name: "page_images_page_id_fk"
 
   add_foreign_key "permissions_roles", "permissions", name: "permissions_roles_permission_id_fk"
   add_foreign_key "permissions_roles", "roles", name: "permissions_roles_role_id_fk"

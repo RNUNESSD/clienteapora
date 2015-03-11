@@ -7,7 +7,7 @@ class Page < ActiveRecord::Base
   validates :title, presence: true, uniqueness: true
   validates :content, presence: true
 
-  has_many :images, as: :imageable
+  has_many :page_images, dependent: :destroy
 
-  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :page_images, allow_destroy: true
 end

@@ -72,3 +72,21 @@ abbr[title]
 
 .mr-10    
   :margin-right 10px
+
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td
+  :border 1px solid #EAEEF1
+
+.table
+  td
+    :vertical-align middle !important
+
+.panel
+  .table-striped
+    thead
+      th:last-child
+        :border-right solid 1px #eaeef1  

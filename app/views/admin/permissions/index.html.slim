@@ -1,15 +1,19 @@
 h2 Permissões
-table.table.table-bordered.table-striped
-  tr
-    th Modelo
-    th Ação
-    th Descrição
-    th
-  - collection.each do |r|
-    tr
-      td= r.object_type
-      td= r.action_name
-      td= r.description
-      td
-        = render 'admin/shared/actions', r: r
+.panel.panel-default
+  .table-responsive
+    table.table.table-striped.b-t.b-light
+      thead
+        tr
+          th Modelo
+          th Ação
+          th Descrição
+          th(width=210) Ações
+      tbody    
+        - collection.each do |r|
+          tr
+            td= r.object_type
+            td= r.action_name
+            td= r.description
+            td.links-actions
+              = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'

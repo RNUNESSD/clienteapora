@@ -34,13 +34,13 @@ Target::Application.routes.draw do
       end
     end
 
-    #resources :pages do
-    #  resources :images do
-     #   collection do
-     #     post :update_position
-     #   end
-     # end
-    #end
+    resources :pages do
+      resources :page_images do
+        collection do
+          post :update_position
+        end
+      end
+    end
 
     root to: 'dashboard#index'
   end
