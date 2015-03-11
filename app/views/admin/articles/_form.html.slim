@@ -7,7 +7,7 @@ h2= parent.name
   //, hint: 'Clique no ícone para escolher uma data'
 
   = f.input :content, :label => 'Conteúdo', :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'Pure' } }
-  #images
+  /#images
     = f.simple_fields_for :images do |image|
       = render 'image_fields', :f => image
     = link_to_add_association 'adicionar imagem', f, :images

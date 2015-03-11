@@ -17,11 +17,16 @@ Target::Application.routes.draw do
     resources :pages, :newsletters, :links, :users, :roles, :permissions
     
     resources :article_categories do
-      resources :articles
+      resources :articles do
+        resources :images do
+          collection do
+            post :update_position
+          end
+        end
+      end  
     end
 
     resources :banner_categories do
-      #get 'change_status', on: :member 
       resources :banners do
         collection do
           post :update_position

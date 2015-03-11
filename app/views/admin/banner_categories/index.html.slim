@@ -6,13 +6,13 @@ h2 Banner - Categorias
         tr
           th Nome
           th Está Ativa?
-          th(width=310)
+          th(width=310) Ações
       tbody    
         - collection.each do |r|
           tr
             td= r.name
             td= render 'admin/shared/is_active', r: r
-            td
+            td.links-actions
               = render 'admin/shared/actions', r: r
-              = link_to 'imagens', resource_path(r), class: 'btn btn-danger btn-sm' if can? :show, resource_class
+              = link_to 'Imagens', resource_path(r), class: 'btn btn-success btn-sm' if can? :show, resource_class
 = render 'admin/shared/create'

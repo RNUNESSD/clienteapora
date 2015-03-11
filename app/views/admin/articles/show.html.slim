@@ -1,12 +1,10 @@
-h2 = resource.name
-
-
-- if resource.banners.present?
+h2 = resource.title
+- if resource.images.present?
   section.panel.panel-default
     header.panel-heading.font-bold
-      #image-sortable.dd.nestable data-update-path="#{update_position_admin_banner_category_banners_path(resource)}"
+      #image-sortable.dd.nestable data-update-path="#{update_position_admin_article_category_article_images_path(parent, resource)}"
         ol.dd-list
-          - resource.banners.each do |image|
+          - resource.images.each do |image|
             li.dd-item.dd3-item data-id= image.id
               .dd-handle.dd3-handle
                 | Drag
@@ -14,11 +12,11 @@ h2 = resource.name
                 .col-md-2
                   = image_tag image.image_url(:thumb).to_s
                 .col-md-8  
-                  = simple_form_for [:admin, resource, image], remote: true do |f|
-                    = f.input :link, label: 'Link', hint: "Ex: http://www.google.com"
+                  = simple_form_for [:admin, parent, resource, image], remote: true do |f|
+                    = f.input :title, label: 'Título'
                     = f.submit 'Atualizar', class: 'btn btn-primary'
                 .col-md-2
-                  = link_to admin_banner_category_banner_path(resource, image), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger mt-15' do
+                  = link_to  admin_article_category_article_image_path(parent, resource, image), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger mt-15' do
                     = fa_icon 'trash'
                
 #uploader.span12.pull-left
@@ -31,7 +29,7 @@ javascript:
   $(function(){
     $("#uploader").pluploadQueue({
       runtimes: 'gears,flash,silverlight,browserplus,html5',
-      url: '#{admin_banner_category_banners_path(resource)}',
+      url: '#{admin_article_category_article_images_path(parent, resource)}',
       multipart_params: {
         '#{request_forgery_protection_token}': '#{form_authenticity_token}',
         '#{Rails.application.config.session_options[:key]}': '#{request.session_options[:id]}'

@@ -1,2 +1,6 @@
-= link_to 'Editar', edit_resource_path(r), class: "btn btn-info btn-sm" if can? :update, resource_class
-= link_to 'Remover', resource_path(r), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: 'Tem Certeza?' } if can? :destroy, resource_class
+- if can? :update, resource_class
+  = link_to edit_resource_path(r), class: "btn btn-info btn-sm" do
+    = fa_icon 'pencil'
+- if can? :destroy, resource_class    
+  = link_to resource_path(r), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: 'Tem Certeza?' } do
+    = fa_icon 'trash'

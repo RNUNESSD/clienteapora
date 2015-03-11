@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
 
   stringify :published_at, format: '%d/%m/%Y %H:%M:%S'
 
-  has_many :images, as: :imageable
+  has_many :images, as: :imageable, dependent: :destroy
 
   belongs_to :article_category
 

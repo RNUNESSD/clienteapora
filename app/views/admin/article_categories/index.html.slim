@@ -3,12 +3,12 @@ table.table.table-bordered.table-striped
   tr
     th Nome
     th Está Ativa?
-    th
+    th(width=310) Ações
   - collection.each do |r|
     tr
       td= r.name
       td
         = render 'admin/shared/is_active', r: r
-      td
+      td.links-actions
         = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'

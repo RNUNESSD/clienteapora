@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150310144252) do
+ActiveRecord::Schema.define(version: 20150311114915) do
 
   create_table "article_categories", force: true do |t|
     t.string  "name"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20150310144252) do
     t.string   "imageable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type", using: :btree
