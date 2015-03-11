@@ -7,7 +7,7 @@ h2 = resource.name
       #image-sortable.dd.nestable data-update-path="#{update_position_admin_banner_category_banners_path(resource)}"
         ol.dd-list
           - resource.banners.each do |image|
-            li.dd-item.dd3-item data-id= image.id
+            li.banners-dd3-content.dd-item.dd3-item data-id= image.id
               .dd-handle.dd3-handle
                 | Drag
               .dd3-content
@@ -15,8 +15,10 @@ h2 = resource.name
                   = image_tag image.image_url(:thumb).to_s
                 .col-md-8  
                   = simple_form_for [:admin, resource, image], remote: true do |f|
+                    = f.input :expires_at_string, :label => 'Expira em', input_html: { class: 'datetime', data: { :'date-format' => "DD/MM/YYYY hh:mm:ss" } }
                     = f.input :link, label: 'Link', hint: "Ex: http://www.google.com"
-                    = f.submit 'Atualizar', class: 'btn btn-primary'
+                    .col-md-offset-2 
+                      = f.submit 'Atualizar', class: 'btn btn-primary ml-15'
                 .col-md-2
                   = link_to admin_banner_category_banner_path(resource, image), method: :delete, data: { confirm: 'Tem certeza?' }, class: 'btn btn-danger mt-15' do
                     = fa_icon 'trash'
