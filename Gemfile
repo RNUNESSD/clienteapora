@@ -61,6 +61,8 @@ gem 'stringify_date', '0.0.5'
 
 gem 'plupload-rails'
 
+gem 'jquery-inputmask-rails'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
