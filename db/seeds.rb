@@ -7,7 +7,7 @@ models = {
   'BannerCategory' => 'Categoria de Banner',
   'Newsletter' => 'Newsletter',
   'Page' => 'Página',
-  'Partner' => 'Parceiro',
+  'PageImage' => 'Imagens para Página',
   'Role' => 'Grupo',
   'User' => 'Usuário'
 }
