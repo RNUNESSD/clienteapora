@@ -8,6 +8,7 @@ models = {
   'Newsletter' => 'Newsletter',
   'Page' => 'Página',
   'PageImage' => 'Imagens para Página',
+  'Image'  => 'Imagens para Notícias'
   'Role' => 'Grupo',
   'User' => 'Usuário'
 }
