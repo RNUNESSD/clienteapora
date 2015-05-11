@@ -8,7 +8,7 @@ models = {
   'Newsletter' => 'Newsletter',
   'Page' => 'Página',
   'PageImage' => 'Imagens para Página',
-  'Image'  => 'Imagens para Notícias'
+  'Image'  => 'Imagens para Notícias',
   'Role' => 'Grupo',
   'User' => 'Usuário'
 }
@@ -32,13 +32,6 @@ end
 
 %w(Admin Redação Cliente).each do |role|
   Role.find_or_create_by(name: role)
-end
-
-User.find_or_create_by(email: 'matheus@corp.agenciaacerte.com') do |u|
-  u.password = '1234567*'
-  u.is_active = true
-  u.roles << Role.where(name: 'Admin').first
-  u.is_admin = true
 end
 
 User.find_or_create_by(email: 'redacao@corp.agenciaacerte.com') do |u|
