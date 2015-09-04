@@ -160,14 +160,6 @@ ActiveRecord::Schema.define(version: 20150311130945) do
 
   add_index "roles", ["name"], name: "index_roles_on_name", unique: true, using: :btree
 
-  create_table "roles_users", id: false, force: true do |t|
-    t.integer "role_id"
-    t.integer "user_id"
-  end
-
-  add_index "roles_users", ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id", unique: true, using: :btree
-  add_index "roles_users", ["user_id"], name: "roles_users_user_id_fk", using: :btree
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -179,6 +171,7 @@ ActiveRecord::Schema.define(version: 20150311130945) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_active",              default: true
@@ -189,6 +182,7 @@ ActiveRecord::Schema.define(version: 20150311130945) do
   add_index "users", ["is_active"], name: "index_users_on_is_active", using: :btree
   add_index "users", ["is_admin"], name: "index_users_on_is_admin", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["role_id"], name: "users_role_id_fk", using: :btree
 
   add_foreign_key "articles", "article_categories", name: "articles_article_category_id_fk"
 
@@ -199,7 +193,6 @@ ActiveRecord::Schema.define(version: 20150311130945) do
   add_foreign_key "permissions_roles", "permissions", name: "permissions_roles_permission_id_fk"
   add_foreign_key "permissions_roles", "roles", name: "permissions_roles_role_id_fk"
 
-  add_foreign_key "roles_users", "roles", name: "roles_users_role_id_fk"
-  add_foreign_key "roles_users", "users", name: "roles_users_user_id_fk"
+  add_foreign_key "users", "roles", name: "users_role_id_fk"
 
 end

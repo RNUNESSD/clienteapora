@@ -9,8 +9,9 @@ h2 Usuários
       = f.input :password, :label => 'Senha'
       .line.line-dashed.b-b.line-lg.pull-in
       = f.input :password_confirmation, :label => 'Repita a Senha'
-      .line.line-dashed.b-b.line-lg.pull-in
-      = f.association :roles, as: :check_boxes, :label => 'Grupos', wrapper: :horizontal_radio_and_checkboxes
+      - if current_user.role.name == "Admin" 
+        .line.line-dashed.b-b.line-lg.pull-in
+        = f.association :role, as: :radio_buttons, :label => 'Grupos', wrapper: :horizontal_radio_and_checkboxes
       .line.line-dashed.b-b.line-lg.pull-in
       = f.input :is_active, :label => 'Está Ativo?'
 

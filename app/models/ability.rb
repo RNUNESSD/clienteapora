@@ -5,11 +5,9 @@ class Ability
 
     if user.is_admin?
       can :manage, :all
-    else
-     user.roles.each do |role|
-       role.permissions.each do |permission|
-         can permission.action_name.to_sym, permission.object_type.constantize
-       end
+    else     
+     user.role.permissions.each do |permission|
+        can permission.action_name.to_sym, permission.object_type.constantize
      end
     end
   end

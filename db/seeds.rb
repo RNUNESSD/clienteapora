@@ -30,16 +30,6 @@ models.each do |object|
   end
 end
 
-%w(Admin Redação Cliente).each do |role|
-  Role.find_or_create_by(name: role)
-end
-
-User.find_or_create_by(email: 'redacao@corp.agenciaacerte.com') do |u|
-  u.password = '1234567*'
-  u.is_active = true
-  u.roles << Role.where(name: 'Redação').first
-end
-
 pages.each do |page|
   Page.find_or_create_by(title: page) do |p|
     p.content = 'Falta Conteudo'
@@ -54,11 +44,28 @@ banner_categories.each do |banner|
   BannerCategory.find_or_create_by(banner)
 end
 
+
+%w(Admin Redação Cliente Atendimento).each do |role|
+  Role.find_or_create_by(name: role)
+end
+
+User.find_or_create_by(email: 'redacao@corp.agenciaacerte.com') do |u|
+  u.password = '#acer7e2727'
+  u.is_active = true
+  u.role = Role.where(name: 'Redação').first
+end
+
+User.find_or_create_by(email: 'atendimento@agenciaacerte.com') do |u|
+  u.password = 'Atend2727*'
+  u.is_active = true
+  u.role = Role.where(name: 'Atendimento').first
+end
+
 namespace :dev do
   User.find_or_create_by(email: 'desenvolvimento@agenciaacerte.com') do |u|
-    u.password = '1234567*'
+    u.password = '&"!6]_@Wd n:uQ6R[ZV<>QKw-'
     u.is_active = true
-    u.roles << Role.where(name: 'Admin').first
+    u.role = Role.where(name: 'Admin').first
     u.is_admin = true
   end
 end
