@@ -1,8 +1,6 @@
 class BannerCategory < ActiveRecord::Base
   has_many :banners, dependent: :destroy
 
-  #validates_associated :banners
-
   attr_readonly :name
 
   validates :name, presence: :true, uniqueness: true
@@ -10,5 +8,5 @@ class BannerCategory < ActiveRecord::Base
   validates :image_height, presence: true, numericality: true
 
   accepts_nested_attributes_for :banners, allow_destroy: true
-  #accepts_nested_attributes_for :banners, allow_destroy: true, reject_if: :all_blank
+
 end
