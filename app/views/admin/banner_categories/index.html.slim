@@ -5,12 +5,16 @@ h2 Banner - Categorias
       thead
         tr
           th Nome
+          th Largura
+          th Altura
           th Está Ativa?
           th(width=310) Ações
       tbody    
         - collection.each do |r|
           tr
             td= r.name
+            td= r.image_width
+            td= r.image_height
             td= render 'admin/shared/is_active', r: r
             td.links-actions
               = render 'admin/shared/actions', r: r
