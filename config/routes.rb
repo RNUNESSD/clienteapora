@@ -9,8 +9,9 @@ Target::Application.routes.draw do
 
   get '/pagina/:slug' => 'frontend/pages#show', as: :page
 
-  get '/conteudo/:article_category_slug' => 'frontend/articles#index', as: :articles
-  get '/conteudo/:article_category_slug/:slug' => 'frontend/articles#show', as: :article
+  %w( 404 422 500 ).each do |code|
+    get code, :to => "errors#show", :code => code
+  end
 
   devise_for :user, path: 'admin'
   namespace :admin do

@@ -29,5 +29,7 @@ module Target
     end
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
+    config.exceptions_app = self.routes
   end
 end
