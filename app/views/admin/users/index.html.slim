@@ -14,7 +14,7 @@ h2 Usuários
             td= r.email
             td
               = render 'admin/shared/is_active', r: r
-            td= r.last_sign_in_at
+            td= r.last_sign_in_at.strftime('%d/%m/%Y %H:%M:%S') if r.last_sign_in_at.present?
             td.links-actions
               = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'

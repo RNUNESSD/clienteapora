@@ -10,22 +10,21 @@ class Admin::UsersController < Admin::ResourceController
 
   def create
     
-  	unless params[:user][:role_id].present?
-      user  = User.new(email: params[:user][:email], password: params[:user][:password], is_active: params[:user][:is_active])
-      user.role = Role.where(name: 'Cliente').first    
-      user.save
-      redirect_to collection_path    
+    role = Role.find params[:user][:role_id]
+    
+    if role.name == "Admin"
+
+      User.find_or_create_by(email: params[:user][:email]) do |u|
+        u.password = params[:user][:password]
+        u.is_active = true
+        u.role = Role.where(name: 'Admin').first
+        u.is_admin = true
+      end
+
+      redirect_to collection_path
     else
       create! { collection_path } 
     end
   end
-
-  def collection  	
-    if current_user.role.name != "Admin"
-      collection = Role.where(name: 'Cliente').first.users
-    else
-      collection = User.all
-    end
-    collection.paginate(:page => params[:page])
-  end
+  
 end
