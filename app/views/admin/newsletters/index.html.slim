@@ -1,13 +1,17 @@
-h2 E-mails
-table.table.table-bordered.table-striped
-  tr
-    th Nome
-    th E-mail
-    th
-  - collection.each do |r|
-    tr
-      td= r.name
-      td= r.email
-      td
-        = render 'admin/shared/actions', r: r
+h2 Newsletters
+.panel.panel-default
+  .table-responsive
+    table.table.table-striped.b-t.b-light
+      thead
+        tr
+          th Nome
+          th E-mail
+          th(width=210) Ações
+      tbody
+        - collection.each do |r|
+          tr
+            td= r.name
+            td= r.email
+            td.links-actions
+              = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'
