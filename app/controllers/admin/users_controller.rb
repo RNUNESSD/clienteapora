@@ -10,7 +10,7 @@ class Admin::UsersController < Admin::ResourceController
 
   def create
     
-    if !params[:user][:role_id].present?
+    if current_user.role.name != "Admin"
 
       user  = User.new(email: params[:user][:email], password: params[:user][:password], is_active: params[:user][:is_active])
       user.role = Role.where(name: 'Cliente').first    
