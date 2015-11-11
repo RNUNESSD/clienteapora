@@ -14,11 +14,11 @@ class Admin::PageImagesController < Admin::PositionUpdaterController
   end
 
   def destroy
-    destroy! { parent_path }
+    destroy! { parent_url(parent) }
   end
 
   def update
-    update! { resource_path }
+    update! { parent_url(parent) }
   end
   
 end

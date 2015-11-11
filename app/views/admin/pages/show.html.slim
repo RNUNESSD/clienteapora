@@ -4,7 +4,7 @@ h2 = resource.title
 - if resource.page_images.present?
   section.panel.panel-default
     header.panel-heading.font-bold
-      #image-sortable.dd.nestable data-update-path="#{update_position_admin_page_page_images_path(resource)}"
+      #image-sortable.dd.nestable.gallery-img data-update-path="#{update_position_admin_page_page_images_path(resource)}"
         ol.dd-list
           - resource.page_images.each do |image|
             li.dd-item.dd3-item data-id= image.id
@@ -14,7 +14,7 @@ h2 = resource.title
                 .col-md-2
                   = image_tag image.image_url(:thumb).to_s
                 .col-md-8  
-                  = simple_form_for [:admin, resource, image], remote: true do |f|
+                  /= simple_form_for [:admin, resource, image], remote: true do |f|
                     = f.input :title, label: 'Título'
                     = f.submit 'Atualizar', class: 'btn btn-primary'
                 .col-md-2

@@ -10,21 +10,49 @@ class Admin::UsersController < Admin::ResourceController
 
   def create
     
-    role = Role.find params[:user][:role_id]
-    
-    if role.name == "Admin"
+    if !params[:user][:role_id].present?
 
-      User.find_or_create_by(email: params[:user][:email]) do |u|
-        u.password = params[:user][:password]
-        u.is_active = true
-        u.role = Role.where(name: 'Admin').first
-        u.is_admin = true
-      end
-
+      user  = User.new(email: params[:user][:email], password: params[:user][:password], is_active: params[:user][:is_active])
+      user.role = Role.where(name: 'Cliente').first    
+      user.save  
       redirect_to collection_path
+
     else
+
       create! { collection_path } 
+
+    end
+
+  end
+
+  def edit_password
+    @user = current_user
+    authorize! :edit_password, @user
+  end
+
+  def update_password
+    @user = User.find(current_user.id)
+    if @user.update(user_params)
+      sign_in @user, :bypass => true
+      redirect_to admin_root_path
+    else
+      render :edit_password
     end
   end
+
+  def collection    
+    if current_user.role.name != "Admin"
+      collection = Role.where(name: 'Cliente').first.users
+    else
+      collection = User.all
+    end
+
+    collection.paginate(:page => params[:page])
+  end
   
+  private
+  def user_params
+    params.require(:user).permit(:password, :password_confirmation)
+  end
+
 end

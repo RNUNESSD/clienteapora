@@ -9,17 +9,21 @@ models = {
   'Page' => 'Página',
   'PageImage' => 'Imagens para Página',
   'Image'  => 'Imagens para Notícias',
+  'Localization'  => 'Localização',
+  'Phone'  => 'Telefone',
+  'EmailCategory'  => 'Categoria de E-mail',
+  'EmailContact'  => 'E-mail de Contato',
   'Role' => 'Grupo',
   'User' => 'Usuário'
 }
 
 actions = { 'create' => 'adicionar', 'read' => 'visualizar', 'update' => 'editar', 'destroy' => 'remover' }
 
-pages = ['Quem Somos']
+pages = ['']
 
-article_categories = ['Serviços']
+article_categories = ['']
 
-banner_categories = [{ name: 'Test', image_width: 20, image_height: 20 }]
+banner_categories = [{ name: 'Banners', image_width: 940, image_height: 400 }]
 
 
 models.each do |object|
@@ -47,6 +51,10 @@ end
 
 %w(Admin Redação Cliente Atendimento).each do |role|
   Role.find_or_create_by(name: role)
+end
+
+['Contato'].each do |name|
+  EmailCategory.find_or_create_by(name: name)
 end
 
 User.find_or_create_by(email: 'redacao@corp.agenciaacerte.com') do |u|

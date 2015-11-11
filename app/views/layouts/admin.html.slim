@@ -37,6 +37,9 @@ html lang="pt-BR"
               ul.dropdown-menu.animated.fadeInRight
                 li
                   = link_to "Logout", destroy_user_session_path, :method => :delete, :data => { :toggle => "ajaxModal"}
+                - if current_user.role.name == "Cliente"
+                  li
+                    = link_to "Editar Senha", admin_edit_password_path
       section
         section.hbox.stretch
           /! .aside
@@ -50,10 +53,38 @@ html lang="pt-BR"
                       = nav_link_to admin_root_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active'} do 
                           = fa_icon 'dashboard'
                           span.font-bold Dashboard
+                      - if can? :read, Localization
+                        = nav_link_to admin_localizations_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
+                            = fa_icon 'map-marker'
+                            span.font-bold Localizações
+                      - if can? :read, Phone
+                        = nav_link_to admin_phones_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
+                            = fa_icon 'mobile'
+                            span.font-bold Telefones  
+                      - if (can?(:read, EmailContact) || can?(:read, EmailCategory))
+                        li
+                          a.auto href="#" 
+                            span.pull-right.text-muted
+                              .text
+                                = fa_icon 'angle-down'
+                              .text-active
+                                = fa_icon 'angle-up'
+                            = fa_icon 'envelope'
+                            span.font-bold Emails
+                          ul.nav.dk
+                            - if can? :read, EmailCategory
+                              = nav_link_to admin_email_categories_path, {:class => 'menu_link link-active'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
+                                = fa_icon 'share-alt-square'
+                                span Categorias
+                            - if can? :read, EmailContact
+                              - @email_categories_menu.each do |category|
+                                = nav_link_to admin_email_category_email_contacts_path(category), {:class => 'menu_link link-active'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 3 } do
+                                    = fa_icon 'envelope-square'
+                                    span= category.name 
                       - if can? :read, BannerCategory
                         = nav_link_to admin_banner_categories_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
                             = fa_icon 'image'
-                            span.font-bold Banners
+                            span.font-bold Banners                       
                       - if (can?(:read, Article) || can?(:read, ArticleCategory))
                         li
                           a.auto href="#" 
@@ -78,6 +109,10 @@ html lang="pt-BR"
                         = nav_link_to admin_pages_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
                           = fa_icon 'book'
                           span Páginas
+                      - if can? :read, Newsletter
+                        = nav_link_to admin_newsletters_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
+                          = fa_icon 'rocket'
+                          span Newsletter    
                       - if can? :read, User
                         = nav_link_to admin_users_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 }
                           = fa_icon 'user'

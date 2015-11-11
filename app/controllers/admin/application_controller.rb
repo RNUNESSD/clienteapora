@@ -10,5 +10,6 @@ class Admin::ApplicationController < ActionController::Base
 
   def defaults
     @article_categories_menu = ArticleCategory.active
+    @email_categories_menu = EmailCategory.all
   end
 end

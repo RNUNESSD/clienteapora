@@ -1,0 +1,17 @@
+h2 Localização
+.panel.panel-default
+  .table-responsive
+    table.table.table-striped.b-t.b-light
+      thead
+        tr
+          th Endereço
+          th Mapa
+          th(width=210) Ações
+      tbody
+        - collection.each do |r|
+          tr
+            td= r.address
+            td= image_tag r.image_url(:thumb) if r.image.present?
+            td.links-actions
+              = render 'admin/shared/actions', r: r
+= render 'admin/shared/create'

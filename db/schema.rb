@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311130945) do
+ActiveRecord::Schema.define(version: 20151111140942) do
 
   create_table "article_categories", force: true do |t|
     t.string  "name"
@@ -76,6 +76,21 @@ ActiveRecord::Schema.define(version: 20150311130945) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
+  create_table "email_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "email_contacts", force: true do |t|
+    t.string   "email"
+    t.integer  "email_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "email_contacts", ["email_category_id"], name: "email_contacts_email_category_id_fk", using: :btree
+
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -100,6 +115,14 @@ ActiveRecord::Schema.define(version: 20150311130945) do
   end
 
   add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type", using: :btree
+
+  create_table "localizations", force: true do |t|
+    t.string   "link"
+    t.string   "address"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "newsletters", force: true do |t|
     t.string   "name",       default: ""
@@ -152,6 +175,12 @@ ActiveRecord::Schema.define(version: 20150311130945) do
   add_index "permissions_roles", ["permission_id", "role_id"], name: "index_permissions_roles_on_permission_id_and_role_id", unique: true, using: :btree
   add_index "permissions_roles", ["role_id"], name: "permissions_roles_role_id_fk", using: :btree
 
+  create_table "phones", force: true do |t|
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -187,6 +216,8 @@ ActiveRecord::Schema.define(version: 20150311130945) do
   add_foreign_key "articles", "article_categories", name: "articles_article_category_id_fk"
 
   add_foreign_key "banners", "banner_categories", name: "banners_banner_category_id_fk"
+
+  add_foreign_key "email_contacts", "email_categories", name: "email_contacts_email_category_id_fk"
 
   add_foreign_key "page_images", "pages", name: "page_images_page_id_fk"
 

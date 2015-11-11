@@ -1,0 +1,14 @@
+h2 Localização
+= simple_form_for [:admin, resource], :html => { :class => 'form-horizontal' } do |f|
+  section.panel.panel-default
+    header.panel-heading.font-bold
+      = resource.new_record? ? "Adicionar Localização" : "Editar Localização"
+    .panel-body    
+      = f.input :link, :label => 'Link'
+      .line.line-dashed.b-b.line-lg.pull-in
+      = f.input :image, as: :image_preview, :label => 'Mapa'
+      .line.line-dashed.b-b.line-lg.pull-in
+      = f.input :address, :label => 'Endereço'
+  
+
+  = render 'admin/shared/form_actions', f: f

@@ -14,7 +14,7 @@ h2 = resource.name
                 .col-md-2
                   = image_tag image.image_url(:thumb).to_s
                 .col-md-8  
-                  = simple_form_for [:admin, resource, image], remote: true do |f|
+                  /= simple_form_for [:admin, resource, image], remote: true do |f|
                     = f.input :expires_at_string, :label => 'Expira em', input_html: { class: 'datetime', data: { :'date-format' => "DD/MM/YYYY hh:mm:ss" } }
                     = f.input :link, label: 'Link', hint: "Ex: http://www.google.com"
                     .col-md-offset-2 
