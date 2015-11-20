@@ -6,7 +6,7 @@ h2 Localização
     .panel-body    
       = f.input :link, :label => 'Link'
       .line.line-dashed.b-b.line-lg.pull-in
-      = f.input :image, as: :image_preview, :label => 'Mapa'
+      = f.input :image, as: :image_preview, :label => 'Mapa', :input_html => { :preview_version => :preview }
       .line.line-dashed.b-b.line-lg.pull-in
       = f.input :address, :label => 'Endereço'
   
