@@ -19,6 +19,7 @@ gem 'spring',        group: :development
 gem 'mysql2'
 
 gem 'devise'
+
 gem 'devise-i18n'
 
 gem 'cancan'
@@ -26,8 +27,6 @@ gem 'cancan'
 gem 'simple_form', '3.1.0.rc2'
 
 gem 'carrierwave'
-
-gem 'foreigner'
 
 gem 'friendly_id'
 

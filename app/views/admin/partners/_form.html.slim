@@ -1,0 +1,13 @@
+h2 Parceiros
+= simple_form_for [:admin, resource], :html => { :class => 'form-horizontal' } do |f|
+  section.panel.panel-default
+    header.panel-heading.font-bold
+      = resource.new_record? ? "Adicionar Parceiro" : "Editar Parceiro #{resource.name}"
+    .panel-body    
+      = f.input :name, :label => 'Nome'
+      .line.line-dashed.b-b.line-lg.pull-in
+      = f.input :link, hint: 'Ex: http://www.google.com', :label => 'Link'
+      .line.line-dashed.b-b.line-lg.pull-in
+      = f.input :image, as: :image_preview, :label => 'Imagem', :input_html => { :preview_version => :preview }
+
+  = render 'admin/shared/form_actions', f: f

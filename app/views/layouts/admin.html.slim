@@ -74,12 +74,12 @@ html lang="pt-BR"
                           ul.nav.dk
                             - if can? :read, EmailCategory
                               = nav_link_to admin_email_categories_path, {:class => 'menu_link link-active'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
-                                = fa_icon 'share-alt-square'
+                                = fa_icon 'gear'
                                 span Categorias
                             - if can? :read, EmailContact
                               - @email_categories_menu.each do |category|
                                 = nav_link_to admin_email_category_email_contacts_path(category), {:class => 'menu_link link-active'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 3 } do
-                                    = fa_icon 'envelope-square'
+                                    = fa_icon 'circle-o', class: 'text-success-lt'
                                     span= category.name 
                       - if can? :read, BannerCategory
                         = nav_link_to admin_banner_categories_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
@@ -93,38 +93,51 @@ html lang="pt-BR"
                                 = fa_icon 'angle-down'
                               .text-active
                                 = fa_icon 'angle-up'
-                            = fa_icon 'sitemap'
+                            = fa_icon 'file-text-o'
                             span.font-bold Conteúdo
                           ul.nav.dk
                             - if can? :read, ArticleCategory
                               = nav_link_to admin_article_categories_path, {:class => 'menu_link link-active'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
-                                = fa_icon 'share-alt-square'
+                                = fa_icon 'gear'
                                 span Categorias
                             - if can? :read, Article
                               - @article_categories_menu.each do |category|
                                 = nav_link_to admin_article_category_articles_path(category), {:class => 'menu_link link-active'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 3 } do
-                                    = fa_icon 'gear'
+                                    = fa_icon 'circle-o', class: 'text-success-lt'
                                     span= category.name
                       - if can? :read, Page
                         = nav_link_to admin_pages_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
                           = fa_icon 'book'
                           span Páginas
-                      - if can? :read, Newsletter
+                      /- if can? :read, Newsletter
                         = nav_link_to admin_newsletters_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
                           = fa_icon 'rocket'
-                          span Newsletter    
+                          span Newsletter 
+                      /- if can? :read, Partner
+                        = nav_link_to admin_partners_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
+                            = fa_icon 'users'
+                            span.font-bold Parceiros       
                       - if can? :read, User
                         = nav_link_to admin_users_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 }
                           = fa_icon 'user'
                           span.font-bold Usuários 
-                      - if can? :read, Role
-                        = nav_link_to admin_roles_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
-                          = fa_icon 'users'
-                          span.font-bold Grupos    
-                      - if can? :read, Permission
-                        = nav_link_to admin_permissions_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 }
-                          = fa_icon 'lock'
-                          span.font-bold Permissão        
+                      - if can?(:read, Role) && can?(:read, Permission)
+                        li
+                          a.auto href="#" 
+                            span.pull-right.text-muted
+                              .text
+                                = fa_icon 'angle-down'
+                              .text-active
+                                = fa_icon 'angle-up'
+                            = fa_icon 'lock'
+                            span.font-bold Permissão
+                          ul.nav.dk
+                            = nav_link_to admin_roles_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
+                              = fa_icon 'circle-o', class: 'text-success-lt'
+                              span.font-bold Grupos    
+                            = nav_link_to admin_permissions_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 }
+                              = fa_icon 'circle-o', class: 'text-success-lt'
+                              span.font-bold Ações
                 footer.footer.hidden-xs.no-padder.text-center-nav-xs
                   a.btn.btn-icon.icon-muted.btn-inactive.m-l-xs.m-r-xs data-toggle="class:nav-xs" href="#nav" 
                     .text
