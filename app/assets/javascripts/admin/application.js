@@ -19,4 +19,5 @@
 //= require plupload.settings
 //= require jquery.plupload.queue
 // require jquery.ui.plupload
+//= require bootstrap-sprockets
 //= require_tree .
