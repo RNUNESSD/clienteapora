@@ -1,7 +1,5 @@
 $(function() {
-  $(".datetime").datetimepicker({
-    language: 'pt-br'
-  })
+  $(".datetime").datetimepicker({})
 
   $('#images')
   .bind('cocoon:after-insert', function() {
@@ -35,14 +33,12 @@ $(function() {
 
   $(".date").datetimepicker({
     format: 'DD/MM/YYYY',
-    language: 'pt-BR',
     pickTime: false
   })
 
   $(".datetime").datetimepicker({
     format: 'DD/MM/YYYY hh:mm:ss',
     useSeconds: true,
-    language: 'pt-BR'
   })
 
   if ($('.active').hasClass('item_menu')) {

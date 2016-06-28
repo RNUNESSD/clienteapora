@@ -1,6 +1,0 @@
-.nested-fields
-  = f.input :image, as: :image_preview, :label => 'Imagem', :input_html => { :preview_version => :preview }
-  = f.input :link, :label => 'Link'
-  = f.input :expires_at_string, :label => 'Expira em', input_html: { class: 'datetime', data: { :'date-format' => "DD/MM/YYYY hh:mm:ss" } }
-
-  = link_to_remove_association "remover banner", f
