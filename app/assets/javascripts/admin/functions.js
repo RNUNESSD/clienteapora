@@ -20,7 +20,7 @@ $(function() {
         { nodes: $('.nestable').nestable('serialize') }
     })
   })
-  
+
   $('.chosen-select').chosen(
     {no_results_text: "Oops, nenhum resultado encontrado!"}
   )
@@ -45,5 +45,8 @@ $(function() {
     $('.active').parents('li').addClass('active')
   }
 
-  
+  $(".dropdown-toggle").click(function(){
+    $(".dropdown-menu").slideToggle();
+  });
+
 });
