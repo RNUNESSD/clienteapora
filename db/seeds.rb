@@ -72,7 +72,7 @@ end
 
 namespace :dev do
   User.find_or_create_by(email: 'desenvolvimento@agenciaacerte.com') do |u|
-    u.password = '&"!6]_@Wd n:uQ6R[ZV<>QKw-'
+    u.password = '-, 8?Wgc-_j<np#~'
     u.is_active = true
     u.role = Role.where(name: 'Admin').first
     u.is_admin = true
