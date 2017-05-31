@@ -28,8 +28,7 @@ module Target
       [MAJOR, MINOR, TINY].compact.join(".")
     end
 
-    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-    APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)    
 
     config.exceptions_app = self.routes
   end

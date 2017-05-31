@@ -89,4 +89,5 @@ Target::Application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+  APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
 end
