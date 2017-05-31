@@ -29,6 +29,7 @@ module Target
     end
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
 
     config.exceptions_app = self.routes
   end
