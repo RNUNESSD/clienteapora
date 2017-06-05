@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628142806) do
+ActiveRecord::Schema.define(version: 20151111140942) do
 
   create_table "article_categories", force: :cascade do |t|
     t.string  "name",      limit: 255
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20160628142806) do
 
   create_table "localizations", force: :cascade do |t|
     t.string   "link",       limit: 255
-    t.string   "address",    limit: 255
+    t.text     "address",    limit: 65535
     t.string   "image",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -156,14 +156,6 @@ ActiveRecord::Schema.define(version: 20160628142806) do
 
   add_index "pages", ["slug"], name: "index_pages_on_slug", unique: true, using: :btree
   add_index "pages", ["title"], name: "index_pages_on_title", unique: true, using: :btree
-
-  create_table "partners", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "link",       limit: 255
-    t.string   "image",      limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
 
   create_table "permissions", force: :cascade do |t|
     t.string   "description", limit: 255

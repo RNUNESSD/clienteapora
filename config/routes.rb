@@ -15,11 +15,11 @@ Target::Application.routes.draw do
 
   devise_for :user, path: 'admin'
   namespace :admin do
-    resources :pages, :newsletters, :links, :users, :roles, :permissions, :localizations, :phones, :partners
+    resources :pages, :newsletters, :links, :users, :roles, :permissions, :localizations, :phones
 
     get 'edit_password', to: 'users#edit_password',  as: :edit_password
     patch 'update_password', to: 'users#update_password',  as: :update_password
-    
+
     resources :article_categories do
       resources :articles do
         resources :images do
@@ -27,7 +27,7 @@ Target::Application.routes.draw do
             post :update_position
           end
         end
-      end  
+      end
     end
 
     resources :email_categories do

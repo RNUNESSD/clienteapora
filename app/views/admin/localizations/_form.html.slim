@@ -3,12 +3,12 @@ h2 Localização
   section.panel.panel-default
     header.panel-heading.font-bold
       = resource.new_record? ? "Adicionar Localização" : "Editar Localização"
-    .panel-body    
+    .panel-body
       = f.input :link, :label => 'Link'
       .line.line-dashed.b-b.line-lg.pull-in
       = f.input :image, as: :image_preview, :label => 'Mapa', :input_html => { :preview_version => :preview }
       .line.line-dashed.b-b.line-lg.pull-in
-      = f.input :address, :label => 'Endereço'
-  
+      = f.input :address, :label => 'Endereço', :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'Pure' } }
+
 
   = render 'admin/shared/form_actions', f: f

@@ -13,7 +13,6 @@ models = {
   'Phone'  => 'Telefone',
   'EmailCategory'  => 'Categoria de E-mail',
   'EmailContact'  => 'E-mail de Contato',
-  'Partner'  => 'Parceiros',
   'Role' => 'Grupo',
   'User' => 'Usuário'
 }

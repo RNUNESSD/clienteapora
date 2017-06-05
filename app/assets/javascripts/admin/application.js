@@ -20,4 +20,5 @@
 //= require jquery.plupload.queue
 // require jquery.ui.plupload
 //= require bootstrap-sprockets
+//= require jquery.inputmask
 //= require_tree .

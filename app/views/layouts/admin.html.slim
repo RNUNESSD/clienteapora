@@ -113,10 +113,6 @@ html lang="pt-BR"
                         = nav_link_to admin_newsletters_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
                           = fa_icon 'rocket'
                           span Newsletter
-                      /- if can? :read, Partner
-                        = nav_link_to admin_partners_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
-                            = fa_icon 'users'
-                            span.font-bold Parceiros
                       - if can? :read, User
                         = nav_link_to admin_users_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 }
                           = fa_icon 'user'

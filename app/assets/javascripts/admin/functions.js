@@ -49,4 +49,6 @@ $(function() {
     $(".dropdown-menu").slideToggle();
   });
 
+  $("#phone_phone").inputmask("(99)9999-9999");
+
 });

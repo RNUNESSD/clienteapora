@@ -12,12 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require fancybox
-//= require bxslider
-//= require jquery.cycle2
 //= require jquery.inputmask
-//= require jquery.inputmask.extensions
-//= require jquery.inputmask.numeric.extensions
-//= require jquery.inputmask.date.extensions
-//= require jquery.inputmask.regex.extensions
 //= require_tree .

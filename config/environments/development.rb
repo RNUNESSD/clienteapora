@@ -26,15 +26,7 @@ Target::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
-  ActionMailer::Base.smtp_settings = {
-    :user_name => "agenciaacerte",
-    :password => "_gBLI4*iS&",
-    :domain => "agenciaacerte.com",
-    :address => "smtp.sendgrid.net",
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
   APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
 end

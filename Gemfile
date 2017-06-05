@@ -48,12 +48,6 @@ gem 'html5shiv-rails'
 
 gem 'slim'
 
-gem 'fancybox2-rails', '~> 0.2.8'
-
-gem 'cycle2-rails'
-
-gem 'bxslider-rails'
-
 gem 'nav_lynx'
 
 gem 'stringify_date', '0.0.5'

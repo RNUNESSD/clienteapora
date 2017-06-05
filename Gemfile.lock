@@ -52,7 +52,6 @@ GEM
     bootstrap3-datetimepicker-rails (4.17.37)
       momentjs-rails (>= 2.8.1)
     builder (3.2.2)
-    bxslider-rails (4.2.5.1)
     callsite (0.0.11)
     cancan (1.6.10)
     carrierwave (0.11.2)
@@ -84,8 +83,6 @@ GEM
       sass (~> 3.2.19)
     compass-rails (2.0.0)
       compass (>= 0.12.2)
-    cycle2-rails (1.1.0)
-      jquery-rails (~> 2.0)
     debug_inspector (0.0.2)
     dedent (1.0.1)
     devise (4.1.1)
@@ -97,8 +94,6 @@ GEM
     devise-i18n (1.1.0)
     erubis (2.7.0)
     execjs (2.7.0)
-    fancybox2-rails (0.2.8)
-      railties (>= 3.1.0, < 5.0)
     font-awesome-rails (4.6.3.1)
       railties (>= 3.2, < 5.1)
     friendly_id (5.1.0)
@@ -240,18 +235,15 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bootstrap3-datetimepicker-rails (~> 4.17.37)
-  bxslider-rails
   cancan
   carrierwave
   ckeditor
   cocoon
   coffee-rails (~> 4.0.0)
   compass-rails
-  cycle2-rails
   dedent
   devise
   devise-i18n
-  fancybox2-rails (~> 0.2.8)
   font-awesome-rails
   friendly_id
   html5shiv-rails
@@ -278,4 +270,4 @@ DEPENDENCIES
   will_paginate (= 3.0.7)
 
 BUNDLED WITH
-   1.12.5
+   1.13.1
