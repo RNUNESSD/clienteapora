@@ -20,7 +20,7 @@ set :rvm_path, '/usr/local/rvm/scripts/rvm'
 set :shared_paths, ['config/database.yml', 'tmp', 'log', 'public/uploads', 'public/assets']
 
 task :environment do
-  invoke :'rvm:use[ruby-2.0.0]'
+  invoke :'rvm:use[ruby-2.0.0-p247]'
 end
 
 task :setup => :environment do

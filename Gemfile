@@ -18,7 +18,7 @@ gem 'spring',        group: :development
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
-gem 'devise'
+gem 'devise', '3.5.2'
 
 gem 'devise-i18n'
 
