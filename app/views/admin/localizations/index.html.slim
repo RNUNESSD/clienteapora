@@ -10,7 +10,7 @@ h2 Localização
       tbody
         - collection.each do |r|
           tr
-            td= r.address
+            td= raw r.address
             td= image_tag r.image_url(:thumb) if r.image.present?
             td.links-actions
               = render 'admin/shared/actions', r: r
