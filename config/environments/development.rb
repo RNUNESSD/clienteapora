@@ -29,4 +29,9 @@ Target::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
   APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.add_footer = true
+  end  
 end

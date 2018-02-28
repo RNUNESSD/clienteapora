@@ -62,6 +62,7 @@ group :development do
   gem 'meta_request'
   gem 'mina'
   gem 'dedent'
+  gem 'bullet'
 end
 
 gem 'bootstrap-sass'
