@@ -51,4 +51,6 @@ $(function() {
 
   $("#phone_phone").inputmask("(99)[9]9999-9999", { placeholder: '' });
 
+  $('[data-toggle="tooltip"]').tooltip();
+
 });
