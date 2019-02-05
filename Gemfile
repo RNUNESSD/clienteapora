@@ -1,71 +1,80 @@
 source 'https://rubygems.org'
 
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby '2.4.4'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '5.2.0'
+
 gem 'rails-i18n'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-# Use Compass for improve SASS features
+gem 'sass-rails'
+#
+# # Use Compass for improve SASS features
 gem 'compass-rails'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# Use jquery as the JavaScript library
+# # Use Uglifier as compressor for JavaScript assets
+gem 'uglifier'
+#
+# # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+# # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-# Use mysql as the database for Active Record
-gem 'mysql2'
+# # Use postgress as the database for Active Record
+gem 'pg', '~> 0.18.4'
 
-gem 'devise', '3.5.2'
+gem 'devise'
+
+gem 'ransack'
 
 gem 'devise-i18n'
 
-gem 'cancan'
-
-gem 'simple_form', '3.1.0.rc2'
-
+gem 'cancancan', '~> 2.0'
+#
+gem 'simple_form'
+#
 gem 'carrierwave'
 
 gem 'friendly_id'
-
+#
 gem 'mini_magick'
-
-gem 'will_paginate', '3.0.7'
-
+#
+gem 'will_paginate'
+#
 gem 'ckeditor'
-
+#
 gem 'sendgrid'
 
 gem 'newrelic_rpm'
 
 gem 'cocoon'
-
+#
 gem 'inherited_resources'
-
-gem 'html5shiv-rails'
-
+#
 gem 'slim'
-
+#
 gem 'nav_lynx'
 
 gem 'stringify_date', '0.0.5'
 
 gem 'plupload-rails'
-
+#
 gem 'jquery-inputmask-rails'
 
+gem 'execjs'
+
+gem 'therubyracer'
+#
+#
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'mina'
   gem 'dedent'
   gem 'bullet'
 end
-
+#
 gem 'bootstrap-sass'
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
 gem 'font-awesome-rails'

@@ -1,5 +1,5 @@
 #encoding: utf-8
-class CreateBannerCategories < ActiveRecord::Migration
+class CreateBannerCategories < ActiveRecord::Migration[5.2]
   def change
     create_table :banner_categories do |t|
       t.string :name

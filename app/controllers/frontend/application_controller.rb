@@ -1,5 +1,5 @@
 class Frontend::ApplicationController < ActionController::Base
-  before_filter :initializers
+  before_action :initializers
   protect_from_forgery
   layout 'frontend'
 

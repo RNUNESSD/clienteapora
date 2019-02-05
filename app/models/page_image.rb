@@ -1,4 +1,4 @@
-class PageImage < ActiveRecord::Base
+class PageImage < ApplicationRecord
   include Positionable
 
   belongs_to :page

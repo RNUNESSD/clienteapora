@@ -1,4 +1,4 @@
-class Permission < ActiveRecord::Base
+class Permission < ApplicationRecord
   validates :object_type, presence: true, uniqueness: { scope: :action_name }
 
   ACTIONS = { 'Adicionar' => 'create', 'Editar' => 'update', 'Visualizar' => 'read', 'Remover' => 'destroy' }

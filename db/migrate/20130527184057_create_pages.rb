@@ -1,5 +1,5 @@
 #encoding: utf-8
-class CreatePages < ActiveRecord::Migration
+class CreatePages < ActiveRecord::Migration[5.2]
   def change
     create_table :pages do |t|
       t.string      :title

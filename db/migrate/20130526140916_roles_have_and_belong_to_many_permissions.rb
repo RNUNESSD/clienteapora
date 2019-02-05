@@ -1,4 +1,4 @@
-class RolesHaveAndBelongToManyPermissions < ActiveRecord::Migration
+class RolesHaveAndBelongToManyPermissions < ActiveRecord::Migration[5.2]
   def change
     create_table :permissions_roles, id: false do |t|
       t.references :permission, :role

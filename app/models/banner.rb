@@ -1,5 +1,5 @@
 # encoding: UTF-8
-class Banner < ActiveRecord::Base
+class Banner < ApplicationRecord
   include Positionable
   stringify :expires_at, format: '%d/%m/%Y %H:%M:%S'
 

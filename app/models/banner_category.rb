@@ -1,4 +1,4 @@
-class BannerCategory < ActiveRecord::Base
+class BannerCategory < ApplicationRecord
   has_many :banners, dependent: :destroy
 
   attr_readonly :name

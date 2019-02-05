@@ -1,3 +1,3 @@
-class Phone < ActiveRecord::Base
+class Phone < ApplicationRecord
 	validates :phone, presence: true
 end

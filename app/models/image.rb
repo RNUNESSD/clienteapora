@@ -1,4 +1,4 @@
-class Image < ActiveRecord::Base
+class Image < ApplicationRecord
   include Positionable
   belongs_to :imageable, polymorphic: true
 
