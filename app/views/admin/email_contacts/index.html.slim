@@ -4,12 +4,12 @@ h2= parent.name
     table.table.table-striped.b-t.b-light
       thead
         tr
-          th Email
-          th(width=310) Ações
+          th.text-center Email
+          th.text-center(width=310) Ações
       tbody    
         - collection.each do |r|
           tr
-            td= r.email
-            td.links-actions
+            td.text-center= r.email
+            td.text-center.links-actions
               = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'

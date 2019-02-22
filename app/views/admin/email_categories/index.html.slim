@@ -4,12 +4,12 @@ h2 Email - Categorias
     table.table.table-striped.b-t.b-light
       thead
         tr
-          th Nome
-          th(width=310) Ações
+          th.text-center Nome
+          th.text-center(width=310) Ações
       tbody    
         - collection.each do |r|
           tr
-            td= r.name
-            td.links-actions
+            td.text-center= r.name
+            td.text-center.links-actions
               = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'

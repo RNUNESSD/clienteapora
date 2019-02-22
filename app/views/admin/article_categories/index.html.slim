@@ -4,15 +4,15 @@ h2 Conteúdo - Categorias
     table.table.table-striped.b-t.b-light
       thead
         tr
-          th Nome
-          th Está Ativa?
-          th(width=310) Ações
+          th.text-center Nome
+          th.text-center Está Ativa?
+          th.text-center(width=310) Ações
       tbody    
         - collection.each do |r|
           tr
-            td= r.name
-            td
+            td.text-center= r.name
+            td.text-center
               = render 'admin/shared/is_active', r: r
-            td.links-actions
+            td.text-center.links-actions
               = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'

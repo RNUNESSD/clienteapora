@@ -4,14 +4,14 @@ h2 Localização
     table.table.table-striped.b-t.b-light
       thead
         tr
-          th Endereço
-          th Mapa
-          th(width=210) Ações
+          th.text-center Endereço
+          th.text-center Mapa
+          th.text-center(width=210) Ações
       tbody
         - collection.each do |r|
           tr
-            td= raw r.address
-            td= image_tag r.image_url(:thumb) if r.image.present?
-            td.links-actions
+            td.text-center= raw r.address
+            td.text-center= image_tag r.image_url(:thumb) if r.image.present?
+            td.text-center.links-actions
               = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'

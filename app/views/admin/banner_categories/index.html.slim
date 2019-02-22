@@ -4,19 +4,19 @@ h2 Banner - Categorias
     table.table.table-striped.b-t.b-light
       thead
         tr
-          th Nome
-          th Largura
-          th Altura
-          th Está Ativa?
-          th(width=310) Ações
+          th.text-center Nome
+          th.text-center Largura
+          th.text-center Altura
+          th.text-center Está Ativa?
+          th.text-center (width=310) Ações
       tbody    
         - collection.each do |r|
           tr
-            td= r.name
-            td= r.image_width
-            td= r.image_height
-            td= render 'admin/shared/is_active', r: r
-            td.links-actions
+            td.text-center= r.name
+            td.text-center= r.image_width
+            td.text-center= r.image_height
+            td.text-center= render 'admin/shared/is_active', r: r
+            td.text-center.links-actions
               = render 'admin/shared/actions', r: r
               = render 'admin/shared/action_images', r: r
 = render 'admin/shared/create'

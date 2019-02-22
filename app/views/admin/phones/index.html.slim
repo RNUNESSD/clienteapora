@@ -4,12 +4,12 @@ h2 Telefones
     table.table.table-striped.b-t.b-light
       thead
         tr
-          th Telefone
-          th(width=210) Ações
+          th.text-center Telefone
+          th.text-center(width=210) Ações
       tbody
         - collection.each do |r|
           tr
-            td= r.phone
-            td.links-actions
+            td.text-center= r.phone
+            td.text-center.links-actions
               = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'

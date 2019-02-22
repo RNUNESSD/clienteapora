@@ -4,13 +4,13 @@ h2 Páginas
     table.table.table-striped.b-t.b-light
       thead
         tr
-          th Título
-          th(width=210) Ações
+          th.text-center Título
+          th.text-center(width=210) Ações
       tbody
         - collection.each do |r|
           tr
-            td= r.title
-            td.links-actions
+            td.text-center= r.title
+            td.text-center.links-actions
               = render 'admin/shared/actions', r: r
               - if can? :show, resource_class
                 = render 'admin/shared/action_images', r: r

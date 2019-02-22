@@ -4,14 +4,14 @@ h2 Newsletters
     table.table.table-striped.b-t.b-light
       thead
         tr
-          th Nome
-          th E-mail
-          th(width=210) Ações
+          th.text-center Nome
+          th.text-center E-mail
+          th.text-center(width=210) Ações
       tbody
         - collection.each do |r|
           tr
-            td= r.name
-            td= r.email
-            td.links-actions
+            td.text-center= r.name
+            td.text-center= r.email
+            td.text-center.links-actions
               = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'

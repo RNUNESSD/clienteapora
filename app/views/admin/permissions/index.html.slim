@@ -4,16 +4,16 @@ h2 Permissões
     table.table.table-striped.b-t.b-light
       thead
         tr
-          th Modelo
-          th Ação
-          th Descrição
-          th(width=210) Ações
+          th.text-center Modelo
+          th.text-center Ação
+          th.text-center Descrição
+          th.text-center(width=210) Ações
       tbody    
         - collection.each do |r|
           tr
-            td= r.object_type
-            td= r.action_name
-            td= r.description
-            td.links-actions
+            td.text-center= r.object_type
+            td.text-center= r.action_name
+            td.text-center= r.description
+            td.text-center.links-actions
               = render 'admin/shared/actions', r: r
 = render 'admin/shared/create'
