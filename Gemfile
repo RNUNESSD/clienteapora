@@ -77,4 +77,4 @@ end
 gem 'bootstrap-sass'
 gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 5.6.1'
