@@ -53,4 +53,10 @@ $(function() {
 
   $('[data-toggle="tooltip"]').tooltip();
 
+  $('.simple-form button[type=submit].btn-primary').on('click', function (event) {  
+    event.preventDefault();
+    var el = $(this);
+    el.prop('disabled', true);
+    setTimeout(function(){el.prop('disabled', false); }, 3000);
+  });
 });
