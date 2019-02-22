@@ -15,7 +15,7 @@ Target::Application.routes.draw do
 
   devise_for :user, path: 'admin'
   namespace :admin do
-    resources :pages, :newsletters, :links, :users, :roles, :permissions, :localizations, :phones
+    resources :pages, :newsletters, :links, :users, :roles, :permissions, :localizations, :phones, :social_networks
 
     get 'edit_password', to: 'users#edit_password',  as: :edit_password
     patch 'update_password', to: 'users#update_password',  as: :update_password

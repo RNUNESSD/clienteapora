@@ -81,6 +81,10 @@ html lang="pt-BR"
                                 = nav_link_to admin_email_category_email_contacts_path(category), {:class => 'menu_link link-active'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 3 } do
                                     = icon('far', 'circle', class: 'text-success-lt')
                                     span= category.name
+                      - if can? :read, SocialNetwork
+                        = nav_link_to admin_social_networks_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
+                          = icon('fas', 'at')
+                          span Redes Socias           
                       - if can? :read, BannerCategory
                         = nav_link_to admin_banner_categories_path, {:class => 'menu_link'}, {:wrapper => 'li', :wrapper_class => 'item_menu', :selected_class => 'active', :url_segment => 2 } do
                             = icon('far', 'image')
