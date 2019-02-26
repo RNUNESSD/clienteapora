@@ -63,6 +63,8 @@ gem 'jquery-inputmask-rails'
 
 gem 'execjs'
 
+gem 'responders'
+
 gem 'therubyracer'
 
 gem 'bootsnap', require: false

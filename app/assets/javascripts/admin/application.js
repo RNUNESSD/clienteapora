@@ -21,4 +21,5 @@
 // require jquery.ui.plupload
 //= require bootstrap-sprockets
 //= require jquery.inputmask
+//= require toastr
 //= require_tree .

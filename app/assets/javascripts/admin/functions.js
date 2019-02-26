@@ -58,5 +58,29 @@ $(function() {
     var el = $(this);
     el.prop('disabled', true);
     setTimeout(function(){el.prop('disabled', false); }, 3000);
-  });
+  });  
+  
+  var options = {
+    closeButton: true,
+    debug: false,
+    newestOnTop: false,
+    progressBar: true,
+    positionClass: "toast-top-center",
+    preventDuplicates: true,
+    onclick: null,
+    showDuration: 300,
+    hideDuration: 1000,
+    timeOut: 3000,
+    extendedTimeOut: 1000,
+    showEasing: "swing",
+    hideEasing: "linear",
+    showMethod: "fadeIn",
+    hideMethod: "fadeOut"
+  }
+
+  if($('.notice').text() !== "") 
+    toastr.success($('.notice').text(), "Sucesso!", options);  
+
+  if($('.alert').text() !== "") 
+    toastr.error($('.alert').text(), "Falha!", options);
 });

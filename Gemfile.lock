@@ -294,6 +294,7 @@ DEPENDENCIES
   rails (= 5.2.0)
   rails-i18n
   ransack
+  responders
   sass-rails
   sendgrid
   simple_form
