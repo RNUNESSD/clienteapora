@@ -7,6 +7,7 @@ h2 Localização
       = f.input :link, :label => 'Link'
       .line.line-dashed.b-b.line-lg.pull-in
       = f.input :image, as: :image_preview, :label => 'Mapa', :input_html => { :preview_version => :preview }
+      = f.hidden_field :image_cache
       - if !resource.new_record? && resource.image.present?      
         .form-group
           label.remove-image-label
