@@ -72,12 +72,12 @@ gem 'bootsnap', require: false
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request'
-  gem 'dedent'
   gem 'bullet'
+  gem 'dedent'
+  gem 'meta_request'
 end
 #
 gem 'bootstrap-sass'
-gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
+gem 'momentjs-rails'

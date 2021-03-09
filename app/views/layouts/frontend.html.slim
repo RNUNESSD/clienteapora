@@ -17,8 +17,21 @@ html lang="pt-BR"
 
   body
     header
+      .col-sm-12.bar-top-login
+      
+      #menu
+        .col-sm-12.menubar
+          = link_to 'About', class: 'menu-link'
+          = link_to 'Projects', class: 'menu-link'
+          = link_to 'Contato', class: 'menu-link'
+          = link_to 'Blog', class: 'menu-link'
 
     #main
       = yield
 
     footer
+      .col-sm-12.bar-bottom-footer
+        .col-sm-4.col-sm-offset-4
+          span 2019 make with
+          = icon("fas", "heartbeat")
+          span Randson Nunes

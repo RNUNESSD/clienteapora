@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.inputmask
+//= require lightslider
+//= require jquery.fancybox
 //= require_tree .

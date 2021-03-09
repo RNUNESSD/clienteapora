@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Target::Application.load_tasks
+Rubycms::Application.load_tasks

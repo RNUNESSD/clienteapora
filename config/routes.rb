@@ -1,11 +1,11 @@
-Target::Application.routes.draw do
+Rubycms::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   get '/contato' => 'frontend/contact#new', as: :contact
 
   post '/contato/enviar' => 'frontend/contact#send_contact', as: :send_contact
 
-  post '/newsletter/cadastrar' => 'frontend/home#create_newsletter', as: :create_newsletter
+  # post '/newsletter/cadastrar' => 'frontend/home#create_newsletter', as: :create_newsletter
 
   get '/pagina/:slug' => 'frontend/pages#show', as: :page
 
